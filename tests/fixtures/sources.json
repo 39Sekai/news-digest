@@ -1,0 +1,21 @@
+{
+  "source_trust_scores": {
+    "Reuters": 1.0,
+    "BBC": 1.0,
+    "TechCrunch": 0.9,
+    "The Verge": 0.75,
+    "Ars Technica": 0.85,
+    "GitHub Blog": 0.9,
+    "Anthropic": 1.0,
+    "OpenAI": 1.0,
+    "Docker": 0.95,
+    "Kubernetes.io": 1.0,
+    "Rust Blog": 1.0,
+    "Security Week": 0.85,
+    "Dev.to": 0.7,
+    "Medium": 0.6,
+    "Garden Blog": 0.4,
+    "Lifestyle Blog": 0.4,
+    "Unknown Blog": 0.4
+  }
+}

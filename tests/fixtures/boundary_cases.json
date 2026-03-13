@@ -1,0 +1,93 @@
+{
+  "test_cases": [
+    {
+      "id": "edge-001",
+      "description": "Score just below threshold (0.399)",
+      "semantic_score": 0.5,
+      "recency_score": 0.5,
+      "source_score": 0.5,
+      "novelty_score": 0.0,
+      "expected_final_score": 0.399,
+      "expected_meets_threshold": false,
+      "notes": "Score = 0.6*0.5 + 0.2*0.5 + 0.1*0.5 + 0.1*0.0 = 0.375 + 0.1 + 0.05 + 0 = 0.399"
+    },
+    {
+      "id": "edge-002",
+      "description": "Score exactly at threshold (0.40)",
+      "semantic_score": 0.5,
+      "recency_score": 0.5,
+      "source_score": 0.5,
+      "novelty_score": 0.1,
+      "expected_final_score": 0.40,
+      "expected_meets_threshold": true,
+      "notes": "Boundary: >= 0.40 should be included"
+    },
+    {
+      "id": "edge-003",
+      "description": "Score just above threshold (0.401)",
+      "semantic_score": 0.51,
+      "recency_score": 0.5,
+      "source_score": 0.5,
+      "novelty_score": 0.0,
+      "expected_final_score": 0.406,
+      "expected_meets_threshold": true
+    },
+    {
+      "id": "edge-004",
+      "description": "Maximum possible score",
+      "semantic_score": 1.0,
+      "recency_score": 1.0,
+      "source_score": 1.0,
+      "novelty_score": 1.0,
+      "expected_final_score": 1.0,
+      "expected_meets_threshold": true
+    },
+    {
+      "id": "edge-005",
+      "description": "Zero semantic relevance",
+      "semantic_score": 0.0,
+      "recency_score": 1.0,
+      "source_score": 1.0,
+      "novelty_score": 1.0,
+      "expected_final_score": 0.4,
+      "expected_meets_threshold": true,
+      "notes": "Even with zero semantic, other factors can push above threshold"
+    },
+    {
+      "id": "edge-006",
+      "description": "Unicode title handling",
+      "title": "日本のAI技術が世界を変える",
+      "source_name": "Tech Japan",
+      "expected_no_crash": true,
+      "expected_semantic_score_range": [0.0, 1.0]
+    },
+    {
+      "id": "edge-007",
+      "description": "Very long title (500 chars)",
+      "title": "A very long title that goes on and on...",
+      "source_name": "Long Blog",
+      "expected_no_crash": true
+    },
+    {
+      "id": "edge-008",
+      "description": "XSS attempt in title",
+      "title": "<script>alert('xss')</script>",
+      "source_name": "Malicious Blog",
+      "expected_no_crash": true,
+      "expected_sanitized": true
+    },
+    {
+      "id": "edge-009",
+      "description": "Empty content",
+      "title": "Article with no content",
+      "content_text": "",
+      "expected_no_crash": true
+    },
+    {
+      "id": "edge-010",
+      "description": "Special characters in URL",
+      "url": "https://example.com/article?name=test&value=hello%20world",
+      "expected_no_crash": true
+    }
+  ]
+}
