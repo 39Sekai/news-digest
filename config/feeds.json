@@ -1,0 +1,27 @@
+# Feeds Configuration
+
+413 RSS feeds for daily news digest.
+
+## Categories
+
+- `AI/` - AI/ML news
+- `GENERAL/` - General tech news
+- `EVENTS/` - Events and conferences
+- `ALERT/` - Security alerts
+- `ACGN/` - Anime, Comics, Games, Novels (future)
+
+## Format
+
+```json
+{
+  "feeds": [
+    {
+      "url": "https://example.com/rss",
+      "name": "Example Blog",
+      "category": "GENERAL",
+      "reliability": 0.9,
+      "enabled": true
+    }
+  ]
+}
+```
