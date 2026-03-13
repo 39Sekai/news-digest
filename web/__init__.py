@@ -1,3 +1,2 @@
-# Web UI
-
-FastAPI + HTML frontend for feed management.
+# Web UI Module
+# FastAPI + HTML frontend for News Digest
