@@ -1,39 +1,9 @@
 {
   "feeds": [
-    {
-      "url": "https://news.ycombinator.com/rss",
-      "name": "Hacker News",
-      "category": "tech",
-      "reliability": 0.9,
-      "enabled": true
-    },
-    {
-      "url": "https://feeds.arstechnica.com/arstechnica/index",
-      "name": "Ars Technica",
-      "category": "tech",
-      "reliability": 0.9,
-      "enabled": true
-    },
-    {
-      "url": "https://techcrunch.com/feed/",
-      "name": "TechCrunch",
-      "category": "tech",
-      "reliability": 0.85,
-      "enabled": true
-    },
-    {
-      "url": "https://www.theverge.com/rss/index.xml",
-      "name": "The Verge",
-      "category": "tech",
-      "reliability": 0.85,
-      "enabled": true
-    },
-    {
-      "url": "https://www.wired.com/feed/rss",
-      "name": "Wired",
-      "category": "tech",
-      "reliability": 0.9,
-      "enabled": true
-    }
+    {"url": "https://news.ycombinator.com/rss", "name": "Hacker News", "category": "tech", "reliability": 0.9, "enabled": true},
+    {"url": "https://feeds.arstechnica.com/arstechnica/index", "name": "Ars Technica", "category": "tech", "reliability": 0.9, "enabled": true},
+    {"url": "https://techcrunch.com/feed/", "name": "TechCrunch", "category": "tech", "reliability": 0.85, "enabled": true},
+    {"url": "https://www.theverge.com/rss/index.xml", "name": "The Verge", "category": "tech", "reliability": 0.85, "enabled": true},
+    {"url": "https://www.wired.com/feed/rss", "name": "Wired", "category": "tech", "reliability": 0.9, "enabled": true}
   ]
 }
