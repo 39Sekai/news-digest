@@ -21,13 +21,13 @@ import argparse
 from datetime import datetime
 from pathlib import Path
 
-# Add src to path
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+# Add repo root to path for proper package imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from fetcher import FeedFetcher
-from scorer import ArticleScorer
-from poster import DiscordPoster
-from database import Database
+from src.database import init_db, DATABASE_PATH
+from src.fetcher import FeedFetcher
+from src.scorer import score_and_rank_articles
+from src.poster import post_digest, post_empty_day
 
 # Configuration
 DATA_DIR = Path(__file__).parent.parent / "data"
@@ -63,42 +63,48 @@ async def run_digest(dry_run: bool = False, manual: bool = False):
     
     try:
         # Initialize database
-        db = Database(DB_PATH)
-        await db.init()
+        set_db_path(DB_PATH)
+        init_db()
         logger.info("Database initialized")
-        
-        # Initialize components
-        fetcher = FeedFetcher(db)
-        scorer = ArticleScorer(db)
-        poster = DiscordPoster(db) if not dry_run else None
         
         # 1. Fetch articles from all feeds
         logger.info("Fetching articles from feeds...")
-        articles = await fetcher.fetch_all()
-        logger.info(f"Fetched {len(articles)} articles")
+        async with FeedFetcher() as fetcher:
+            stats = await fetcher.fetch_all()
         
-        if not articles:
+        total_articles = stats.get("articles", 0)
+        logger.info(f"Fetched {total_articles} articles from {stats['success']}/{stats['total']} feeds")
+        
+        if total_articles == 0:
             logger.warning("No articles fetched - will post 'nothing today' message")
             if not dry_run:
-                await poster.post_empty_digest()
+                result = post_empty_day()
+                logger.info(f"Posted empty day message: {result}")
             return 0
         
         # 2. Score and rank articles
         logger.info("Scoring articles...")
-        scored = await scorer.score_articles(articles)
-        top_articles = scored[:10]  # Top N = 10 per SPEC
+        top_articles = score_and_rank_articles()
         logger.info(f"Selected top {len(top_articles)} articles")
+        
+        if not top_articles:
+            logger.warning("No articles passed scoring threshold")
+            if not dry_run:
+                post_empty_day()
+            return 0
         
         # 3. Post to Discord
         if dry_run:
             logger.info("[DRY RUN] Would post to Discord:")
             for art in top_articles:
-                logger.info(f"  - {art['score']:.3f} | {art['title'][:60]}...")
+                score = art.get('final_score', art.get('score', 0))
+                title = art.get('brief') or art.get('title', 'No title')
+                logger.info(f"  - {score:.3f} | {title[:60]}...")
             return 0
         
         logger.info("Posting to Discord...")
-        await poster.post_digest(top_articles)
-        logger.info("Digest posted successfully")
+        result = post_digest(top_articles)
+        logger.info(f"Digest posted: {result}")
         
         # Log completion
         elapsed = (datetime.now() - start_time).total_seconds()

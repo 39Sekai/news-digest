@@ -317,17 +317,24 @@ def list_unposted_articles(max_age_hours: int = 48) -> list[dict]:
         return [dict(row) for row in rows]
 
 
-def list_articles_for_review() -> list[dict]:
+def list_articles_for_review(limit: int = 50, category: Optional[str] = None) -> list[dict]:
     """List articles needing brief review (last 24h, unposted)."""
     with get_db() as conn:
-        rows = conn.execute(
-            """SELECT a.*, b.brief FROM articles a
-               LEFT JOIN briefs b ON a.id = b.article_id
-               WHERE a.is_posted = 0 
-               AND a.is_duplicate = 0
-               AND (a.published_at > datetime('now', '-24 hours') OR a.published_at IS NULL)
-               ORDER BY a.published_at DESC"""
-        ).fetchall()
+        query = """SELECT a.*, b.brief FROM articles a
+                   LEFT JOIN briefs b ON a.id = b.article_id
+                   WHERE a.is_posted = 0 
+                   AND a.is_duplicate = 0
+                   AND (a.published_at > datetime('now', '-24 hours') OR a.published_at IS NULL)"""
+        params = []
+        
+        if category:
+            query += " AND a.category = ?"
+            params.append(category)
+        
+        query += " ORDER BY a.published_at DESC LIMIT ?"
+        params.append(limit)
+        
+        rows = conn.execute(query, params).fetchall()
         return [dict(row) for row in rows]
 
 
