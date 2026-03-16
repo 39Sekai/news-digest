@@ -24,7 +24,7 @@ from pathlib import Path
 # Add repo root to path for proper package imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.database import init_db, DATABASE_PATH
+from src.database import init_db
 from src.fetcher import FeedFetcher
 from src.scorer import score_and_rank_articles
 from src.poster import post_digest, post_empty_day
@@ -63,7 +63,6 @@ async def run_digest(dry_run: bool = False, manual: bool = False):
     
     try:
         # Initialize database
-        set_db_path(DB_PATH)
         init_db()
         logger.info("Database initialized")
         
@@ -78,7 +77,7 @@ async def run_digest(dry_run: bool = False, manual: bool = False):
         if total_articles == 0:
             logger.warning("No articles fetched - will post 'nothing today' message")
             if not dry_run:
-                result = post_empty_day()
+                result = await post_empty_day()
                 logger.info(f"Posted empty day message: {result}")
             return 0
         
@@ -90,7 +89,7 @@ async def run_digest(dry_run: bool = False, manual: bool = False):
         if not top_articles:
             logger.warning("No articles passed scoring threshold")
             if not dry_run:
-                post_empty_day()
+                await post_empty_day()
             return 0
         
         # 3. Post to Discord
@@ -103,7 +102,7 @@ async def run_digest(dry_run: bool = False, manual: bool = False):
             return 0
         
         logger.info("Posting to Discord...")
-        result = post_digest(top_articles)
+        result = await post_digest(top_articles)
         logger.info(f"Digest posted: {result}")
         
         # Log completion

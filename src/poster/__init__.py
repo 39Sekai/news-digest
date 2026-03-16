@@ -5,11 +5,10 @@ Posts to #notifications channel via webhook
 """
 
 import os
+import httpx
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
-
-import httpx
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -18,6 +17,11 @@ load_dotenv(env_path)
 
 # Discord channel ID from SPEC §2.1
 DEFAULT_CHANNEL_ID = "1475330217215004904"
+
+
+def get_webhook_url() -> Optional[str]:
+    """Get Discord webhook URL from environment."""
+    return os.getenv("DISCORD_WEBHOOK_URL")
 
 
 class DiscordPoster:
@@ -132,6 +136,7 @@ class DiscordPoster:
         return {
             "channel_id": self.channel_id,
             "content": content,
+            "webhook_url": self.webhook_url,
             "article_count": len(articles),
             "article_ids": [a["id"] for a in articles]
         }
@@ -143,7 +148,7 @@ class DiscordPoster:
         return {**prepared, **result}
 
 
-def post_digest(articles: list[dict], category: str = "Tech News") -> dict:
+async def post_digest(articles: list[dict], category: str = "Tech News") -> dict:
     """Post a digest to Discord.
     
     Args:
@@ -154,13 +159,13 @@ def post_digest(articles: list[dict], category: str = "Tech News") -> dict:
         Result dict with posting info
     """
     poster = DiscordPoster()
-    return poster.format_and_prepare(category, articles)
+    return await poster.post_digest(category, articles)
 
 
-def post_empty_day(category: str = "Tech News") -> dict:
+async def post_empty_day(category: str = "Tech News") -> dict:
     """Post empty day message."""
     poster = DiscordPoster()
-    return poster.format_and_prepare(category, [])
+    return await poster.post_digest(category, [])
 
 
 # For testing
