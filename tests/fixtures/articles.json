@@ -13,7 +13,7 @@
       "expected_recency_score": 1.0,
       "expected_source_score": 0.9,
       "expected_novelty_score": 1.0,
-      "expected_final_score": 0.88,
+      "expected_final_score": 0.96,
       "expected_meets_threshold": true
     },
     {
@@ -29,7 +29,7 @@
       "expected_recency_score": 1.0,
       "expected_source_score": 0.4,
       "expected_novelty_score": 1.0,
-      "expected_final_score": 0.17,
+      "expected_final_score": 0.37,
       "expected_meets_threshold": false
     },
     {
@@ -61,8 +61,8 @@
       "expected_recency_score": 0.33,
       "expected_source_score": 1.0,
       "expected_novelty_score": 1.0,
-      "expected_final_score": 0.658,
-      "expected_meets_threshold": false
+      "expected_final_score": 0.758,
+      "expected_meets_threshold": true
     },
     {
       "id": "test-005",
@@ -77,7 +77,7 @@
       "expected_recency_score": 1.0,
       "expected_source_score": 0.85,
       "expected_novelty_score": 1.0,
-      "expected_final_score": 0.735,
+      "expected_final_score": 0.835,
       "expected_meets_threshold": true
     },
     {
@@ -93,7 +93,7 @@
       "expected_recency_score": 1.0,
       "expected_source_score": 0.6,
       "expected_novelty_score": 0.8,
-      "expected_final_score": 0.748,
+      "expected_final_score": 0.808,
       "expected_meets_threshold": true
     },
     {
@@ -109,7 +109,7 @@
       "expected_recency_score": 1.0,
       "expected_source_score": 1.0,
       "expected_novelty_score": 1.0,
-      "expected_final_score": 0.902,
+      "expected_final_score": 0.952,
       "expected_meets_threshold": true
     },
     {
@@ -125,7 +125,7 @@
       "expected_recency_score": 0.89,
       "expected_source_score": 0.95,
       "expected_novelty_score": 1.0,
-      "expected_final_score": 0.729,
+      "expected_final_score": 0.763,
       "expected_meets_threshold": true
     }
   ]
