@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Digest - Settings</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="logo">📰</span>
+            <span>News Digest</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/feeds">Feeds</a></li>
+            <li><a href="/briefs">Briefs</a></li>
+            <li><a href="/settings" class="active">Settings</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="page-header">
+            <h1>Settings</h1>
+            <button class="btn btn-secondary" id="resetBtn">Reset to Defaults</button>
+        </header>
+
+        <form id="settingsForm" class="settings-form">
+            <!-- Posting Schedule -->
+            <section class="settings-section">
+                <h2>📅 Posting Schedule</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="postTime">Daily Post Time</label>
+                        <input type="time" id="postTime" name="post_time" value="08:00">
+                    </div>
+                    <div class="form-group">
+                        <label for="timezone">Timezone</label>
+                        <select id="timezone" name="timezone">
+                            <option value="Asia/Shanghai" selected>Asia/Shanghai</option>
+                            <option value="UTC">UTC</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Article Filtering -->
+            <section class="settings-section">
+                <h2>🔍 Article Filtering</h2>
+                
+                <div class="form-group">
+                    <label for="filterMode">Filter Mode</label>
+                    <select id="filterMode" name="filter_mode">
+                        <option value="top_n" selected>Top N (fixed count)</option>
+                        <option value="binary">Binary (threshold-based)</option>
+                    </select>
+                    <p class="help-text">Top N = always N articles. Binary = variable count based on threshold.</p>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group" id="topNGroup">
+                        <label for="topNLimit">Top N Limit</label>
+                        <input type="number" id="topNLimit" name="top_n_limit" value="10" min="1" max="50">
+                    </div>
+                    <div class="form-group hidden" id="thresholdGroup">
+                        <label for="binaryThreshold">Binary Threshold</label>
+                        <input type="number" id="binaryThreshold" name="binary_threshold" value="0.6" min="0" max="1" step="0.05">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="maxArticleAge">Max Article Age (hours)</label>
+                    <input type="number" id="maxArticleAge" name="max_article_age" value="48" min="1" max="168">
+                    <p class="help-text">Skip articles older than this.</p>
+                </div>
+            </section>
+
+            <!-- Scoring -->
+            <section class="settings-section">
+                <h2>📊 Scoring Algorithm</h2>
+                <p class="section-help">Weights must sum to 1.0</p>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="semanticWeight">Semantic (Relevance)</label>
+                        <input type="number" id="semanticWeight" name="semantic_weight" value="0.6" min="0" max="1" step="0.05" readonly class="locked">
+                        <span class="lock-icon">🔒</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="recencyWeight">Recency (Freshness)</label>
+                        <input type="number" id="recencyWeight" name="recency_weight" value="0.2" min="0" max="1" step="0.05" readonly class="locked">
+                        <span class="lock-icon">🔒</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="sourceWeight">Source (Trust)</label>
+                        <input type="number" id="sourceWeight" name="source_weight" value="0.1" min="0" max="1" step="0.05" readonly class="locked">
+                        <span class="lock-icon">🔒</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="noveltyWeight">Novelty (Diversity)</label>
+                        <input type="number" id="noveltyWeight" name="novelty_weight" value="0.1" min="0" max="1" step="0.05" readonly class="locked">
+                        <span class="lock-icon">🔒</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Feed Health -->
+            <section class="settings-section">
+                <h2>🏥 Feed Health</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="maxFeedErrors">Max Consecutive Errors</label>
+                        <input type="number" id="maxFeedErrors" name="max_feed_errors" value="5" min="1" max="20">
+                        <p class="help-text">Disable feed after N consecutive fetch errors.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="staleFeedHours">Stale Feed Threshold (hours)</label>
+                        <input type="number" id="staleFeedHours" name="stale_feed_hours" value="168" min="24" max="720">
+                        <p class="help-text">Flag feed as stale if no new posts in this time (1 week = 168h).</p>
+                    </div>
+                </div>
+
+                <div class="form-group checkbox">
+                    <label>
+                        <input type="checkbox" id="alertOnFeedFailure" name="alert_on_feed_failure" checked>
+                        Alert on feed failure
+                    </label>
+                </div>
+            </section>
+
+            <!-- Deduplication -->
+            <section class="settings-section">
+                <h2>🔄 Deduplication</h2>
+                
+                <div class="form-group">
+                    <label for="dedupeThreshold">Similarity Threshold</label>
+                    <input type="number" id="dedupeThreshold" name="dedupe_threshold" value="0.85" min="0.5" max="1" step="0.05">
+                    <p class="help-text">Articles with similarity ≥ this value are considered duplicates.</p>
+                </div>
+            </section>
+
+            <!-- Categories -->
+            <section class="settings-section">
+                <h2>📂 Enabled Categories</h2>
+                
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="enabled_categories" value="tech" checked>
+                        <span>Tech</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="enabled_categories" value="ai">
+                        <span>AI/ML</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="enabled_categories" value="security">
+                        <span>Security</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Actions -->
+            <section class="form-actions sticky">
+                <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </section>
+        </form>
+    </main>
+
+    <script src="/static/js/settings.js"></script>
+    <script src="/static/js/common.js"></script>
+</body>
+</html>

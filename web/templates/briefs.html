@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Digest - Brief Editor</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="logo">📰</span>
+            <span>News Digest</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/feeds">Feeds</a></li>
+            <li><a href="/briefs" class="active">Briefs</a></li>
+            <li><a href="/settings">Settings</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="page-header">
+            <div>
+                <h1>Brief Editor</h1>
+                <p class="subtitle">Curate one-liner briefs for today's digest</p>
+            </div>
+            <div class="post-timer">
+                <span class="label">Time until post:</span>
+                <span class="time" id="timeUntilPost">--:--</span>
+            </div>
+        </header>
+
+        <!-- Progress Bar -->
+        <section class="progress-section">
+            <div class="progress-info">
+                <span id="briefProgress">0 of 0 briefs written</span>
+                <span class="progress-percentage" id="progressPercent">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+        </section>
+
+        <!-- Bulk Actions -->
+        <section class="bulk-actions">
+            <button class="btn btn-secondary" id="previewBtn">👁️ Preview Digest</button>
+            <button class="btn btn-secondary" id="autoBriefBtn">🤖 Auto-fill (titles)</button>
+        </section>
+
+        <!-- Brief Queue -->
+        <section class="brief-queue" id="briefQueue">
+            <div class="loading">Loading articles...</div>
+        </section>
+    </main>
+
+    <!-- Preview Modal -->
+    <div class="modal" id="previewModal">
+        <div class="modal-content wide">
+            <div class="modal-header">
+                <h3>Discord Preview</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="discord-preview" id="discordPreview">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/briefs.js"></script>
+    <script src="/static/js/common.js"></script>
+</body>
+</html>
