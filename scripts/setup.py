@@ -28,21 +28,21 @@ def check_python_version():
 
 
 def install_dependencies():
-    """Install Python packages from requirements.txt."""
+    """Install Python packages from requirements.txt using uv."""
     req_file = REPO_ROOT / "requirements.txt"
     if not req_file.exists():
         print("❌ requirements.txt not found")
         return False
     
-    print("Installing dependencies...")
+    print("Installing dependencies with uv...")
     result = subprocess.run(
-        [sys.executable, "-m", "pip", "install", "-r", str(req_file)],
+        ["uv", "pip", "install", "-r", str(req_file)],
         capture_output=True,
         text=True
     )
     
     if result.returncode != 0:
-        print(f"❌ pip install failed:\n{result.stderr}")
+        print(f"❌ uv pip install failed:\n{result.stderr}")
         return False
     
     print("✓ Dependencies installed")
@@ -92,8 +92,8 @@ def main():
         print("✅ Setup complete!")
         print(f"\nNext steps:")
         print(f"  1. Review config in: {CONFIG_DIR}")
-        print(f"  2. Test pipeline: python scripts/cron-digest.py --test")
-        print(f"  3. Dry run: python scripts/cron-digest.py --dry-run")
+        print(f"  2. Test pipeline: uv run python scripts/cron-digest.py --test")
+        print(f"  3. Dry run: uv run python scripts/cron-digest.py --dry-run")
         print(f"\nData will be stored in: {DATA_DIR}")
         print(f"Logs will be written to: {LOG_DIR}")
     else:
