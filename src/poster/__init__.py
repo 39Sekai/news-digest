@@ -1,23 +1,32 @@
 """Discord Poster
 
 Text-only Discord message posting per SPEC §2.2
-Posts to #notifications channel
+Posts to #notifications channel via webhook
 """
 
 import os
 from datetime import datetime
+from pathlib import Path
 from typing import Optional
+
+import httpx
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+env_path = Path(__file__).parent.parent.parent / ".env"
+load_dotenv(env_path)
 
 # Discord channel ID from SPEC §2.1
 DEFAULT_CHANNEL_ID = "1475330217215004904"
 
 
 class DiscordPoster:
-    """Poster for text-only Discord messages."""
+    """Poster for text-only Discord messages via webhook."""
     
-    def __init__(self, channel_id: Optional[str] = None):
+    def __init__(self, webhook_url: Optional[str] = None, channel_id: Optional[str] = None):
+        self.webhook_url = webhook_url or os.getenv("DISCORD_WEBHOOK_URL")
         self.channel_id = channel_id or os.getenv(
-            "DISCORD_NOTIFICATIONS_CHANNEL", 
+            "DISCORD_CHANNEL_ID", 
             DEFAULT_CHANNEL_ID
         )
     
@@ -76,18 +85,46 @@ class DiscordPoster:
         return title
     
     async def post_message(self, content: str) -> dict:
-        """Post message to Discord channel.
+        """Post message to Discord via webhook.
         
-        Uses message tool for delivery.
         Returns result dict with status.
         """
-        # This will be called from the main pipeline
-        # The actual posting happens via OpenClaw message tool
-        return {
-            "channel_id": self.channel_id,
+        if not self.webhook_url:
+            return {
+                "success": False,
+                "error": "DISCORD_WEBHOOK_URL not configured"
+            }
+        
+        payload = {
             "content": content,
-            "status": "ready"
+            "allowed_mentions": {"parse": []}  # Don't allow mentions
         }
+        
+        try:
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                response = await client.post(
+                    self.webhook_url,
+                    json=payload,
+                    headers={"Content-Type": "application/json"}
+                )
+                response.raise_for_status()
+                
+                return {
+                    "success": True,
+                    "status_code": response.status_code,
+                    "channel_id": self.channel_id
+                }
+        except httpx.HTTPStatusError as e:
+            return {
+                "success": False,
+                "error": f"HTTP {e.response.status_code}",
+                "response": e.response.text
+            }
+        except Exception as e:
+            return {
+                "success": False,
+                "error": str(e)
+            }
     
     def format_and_prepare(self, category: str, articles: list[dict]) -> dict:
         """Format and prepare message for posting."""
@@ -98,6 +135,12 @@ class DiscordPoster:
             "article_count": len(articles),
             "article_ids": [a["id"] for a in articles]
         }
+    
+    async def post_digest(self, category: str, articles: list[dict]) -> dict:
+        """Format and post digest to Discord."""
+        prepared = self.format_and_prepare(category, articles)
+        result = await self.post_message(prepared["content"])
+        return {**prepared, **result}
 
 
 def post_digest(articles: list[dict], category: str = "Tech News") -> dict:
@@ -122,14 +165,25 @@ def post_empty_day(category: str = "Tech News") -> dict:
 
 # For testing
 if __name__ == "__main__":
+    import asyncio
+    
     poster = DiscordPoster()
     
     # Test formatting
     test_articles = [
-        {"title": "OpenAI launches GPT-5", "source_name": "TechCrunch", "brief": "OpenAI launches GPT-5 with multimodal reasoning"},
-        {"title": "Rust 1.85 released", "source_name": "Rust Blog", "brief": "Rust 1.85 adds async traits natively"},
+        {"id": 1, "title": "OpenAI launches GPT-5", "source_name": "TechCrunch", "brief": "OpenAI launches GPT-5 with multimodal reasoning"},
+        {"id": 2, "title": "Rust 1.85 released", "source_name": "Rust Blog", "brief": "Rust 1.85 adds async traits natively"},
     ]
     
+    print("Formatted message:")
     print(poster.format_message("Tech News", test_articles))
     print("\n" + "="*50 + "\n")
+    print("Empty day:")
     print(poster.format_message("Tech News", []))
+    
+    # Test webhook if configured
+    if poster.webhook_url:
+        print("\n" + "="*50 + "\n")
+        print("Testing webhook post...")
+        result = asyncio.run(poster.post_digest("Tech News", test_articles))
+        print(f"Result: {result}")
