@@ -789,6 +789,75 @@ body {
     font-style: italic;
 }
 
+/* Header Actions */
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Import Preview */
+.import-preview {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin: 16px 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.import-preview .placeholder {
+    color: var(--color-text-muted);
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+}
+
+.import-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.import-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.import-list li:last-child {
+    border-bottom: none;
+}
+
+.import-list li.more {
+    color: var(--color-text-muted);
+    font-style: italic;
+    text-align: center;
+}
+
+.import-list .url {
+    color: var(--color-text-muted);
+    font-size: 12px;
+}
+
+/* Form file input styling */
+input[type="file"] {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    color: var(--color-text);
+    font-size: 14px;
+    width: 100%;
+    cursor: pointer;
+}
+
+input[type="file"]:hover {
+    border-color: var(--color-primary);
+}
+
 /* Mobile */
 @media (max-width: 768px) {
     .navbar {

@@ -18,12 +18,19 @@
             <li><a href="/briefs">Briefs</a></li>
             <li><a href="/settings">Settings</a></li>
         </ul>
+        <div class="nav-status" id="systemStatus">
+            <span class="status-dot healthy"></span>
+            <span class="status-text">Healthy</span>
+        </div>
     </nav>
 
     <main class="container">
         <header class="page-header">
             <h1>Feed Management</h1>
-            <button class="btn btn-primary" id="addFeedBtn">+ Add Feed</button>
+            <div class="header-actions">
+                <button class="btn btn-secondary" id="importFeedsBtn">📁 Import</button>
+                <button class="btn btn-primary" id="addFeedBtn">+ Add Feed</button>
+            </div>
         </header>
 
         <!-- Filters -->
@@ -87,6 +94,41 @@
                     <div class="form-actions">
                         <button type="button" class="btn btn-secondary" id="cancelAdd">Cancel</button>
                         <button type="submit" class="btn btn-primary">Add Feed</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import Feeds Modal -->
+    <div class="modal" id="importFeedsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Import Feeds from File</h3>
+                <button class="close-btn" id="closeImportModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="importFeedsForm">
+                    <div class="form-group">
+                        <label for="importFile">Select File *</label>
+                        <input type="file" id="importFile" accept=".json,.opml,.xml" required>
+                        <p class="help-text">Supported formats: JSON (feeds.json), OPML, RSS</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="importCategory">Default Category</label>
+                        <select id="importCategory">
+                            <option value="tech">Tech</option>
+                            <option value="ai">AI/ML</option>
+                            <option value="security">Security</option>
+                            <option value="general">General</option>
+                        </select>
+                    </div>
+                    <div class="import-preview" id="importPreview">
+                        <p class="placeholder">Select a file to preview feeds...</p>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelImport">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="confirmImport" disabled>Import Feeds</button>
                     </div>
                 </form>
             </div>

@@ -6,36 +6,63 @@ let feedsData = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     loadFeeds();
-    
+
     // Add feed button
     const addBtn = document.getElementById('addFeedBtn');
     if (addBtn) {
         addBtn.addEventListener('click', () => openModal('addFeedModal'));
     }
-    
-    // Close modal
+
+    // Import feeds button
+    const importBtn = document.getElementById('importFeedsBtn');
+    if (importBtn) {
+        importBtn.addEventListener('click', () => openModal('importFeedsModal'));
+    }
+
+    // Close modals
     const closeAddModal = document.getElementById('closeAddModal');
     if (closeAddModal) {
         closeAddModal.addEventListener('click', () => closeModal('addFeedModal'));
     }
-    
-    // Cancel button
+
+    const closeImportModal = document.getElementById('closeImportModal');
+    if (closeImportModal) {
+        closeImportModal.addEventListener('click', () => closeModal('importFeedsModal'));
+    }
+
+    // Cancel buttons
     const cancelAdd = document.getElementById('cancelAdd');
     if (cancelAdd) {
         cancelAdd.addEventListener('click', () => closeModal('addFeedModal'));
     }
-    
-    // Add feed form
+
+    const cancelImport = document.getElementById('cancelImport');
+    if (cancelImport) {
+        cancelImport.addEventListener('click', () => closeModal('importFeedsModal'));
+    }
+
+    // Forms
     const addForm = document.getElementById('addFeedForm');
     if (addForm) {
         addForm.addEventListener('submit', handleAddFeed);
     }
-    
+
+    const importForm = document.getElementById('importFeedsForm');
+    if (importForm) {
+        importForm.addEventListener('submit', handleImportFeeds);
+    }
+
+    // File input change
+    const importFile = document.getElementById('importFile');
+    if (importFile) {
+        importFile.addEventListener('change', handleFileSelect);
+    }
+
     // Filters
     const statusFilter = document.getElementById('statusFilter');
     const categoryFilter = document.getElementById('categoryFilter');
     const searchInput = document.getElementById('searchFeeds');
-    
+
     if (statusFilter) statusFilter.addEventListener('change', filterFeeds);
     if (categoryFilter) categoryFilter.addEventListener('change', filterFeeds);
     if (searchInput) searchInput.addEventListener('input', debounce(filterFeeds, 300));
@@ -169,6 +196,130 @@ async function toggleFeed(id, enable) {
 function editFeed(id) {
     // TODO: Implement edit modal
     showNotification('Edit feature coming soon', 'info');
+}
+
+// Import functionality
+let feedsToImport = [];
+
+function handleFileSelect(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        try {
+            const content = event.target.result;
+            const fileType = file.name.toLowerCase();
+
+            if (fileType.endsWith('.json')) {
+                feedsToImport = parseJsonFeeds(content);
+            } else if (fileType.endsWith('.opml') || fileType.endsWith('.xml')) {
+                feedsToImport = parseOpmlFeeds(content);
+            } else {
+                throw new Error('Unsupported file format');
+            }
+
+            showImportPreview(feedsToImport);
+            document.getElementById('confirmImport').disabled = feedsToImport.length === 0;
+        } catch (error) {
+            console.error('Error parsing file:', error);
+            showNotification('Error parsing file: ' + error.message, 'error');
+            feedsToImport = [];
+            document.getElementById('confirmImport').disabled = true;
+        }
+    };
+    reader.readAsText(file);
+}
+
+function parseJsonFeeds(content) {
+    const data = JSON.parse(content);
+    if (data.feeds && Array.isArray(data.feeds)) {
+        return data.feeds.map(f => ({
+            url: f.url || f.feed_url || f.link,
+            name: f.name || f.title || 'Unnamed Feed',
+            category: f.category || 'general'
+        })).filter(f => f.url);
+    }
+    throw new Error('Invalid JSON format: expected "feeds" array');
+}
+
+function parseOpmlFeeds(content) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(content, 'text/xml');
+    const outlines = doc.querySelectorAll('outline[type="rss"], outline[xmlUrl]');
+
+    return Array.from(outlines).map(outline => ({
+        url: outline.getAttribute('xmlUrl'),
+        name: outline.getAttribute('title') || outline.getAttribute('text') || 'Unnamed Feed',
+        category: 'general'
+    })).filter(f => f.url);
+}
+
+function showImportPreview(feeds) {
+    const preview = document.getElementById('importPreview');
+    if (feeds.length === 0) {
+        preview.innerHTML = '<p class="placeholder">No valid feeds found in file.</p>';
+        return;
+    }
+
+    preview.innerHTML = `
+        <p><strong>${feeds.length} feeds found:</strong></p>
+        <ul class="import-list">
+            ${feeds.slice(0, 10).map(f => `<li>${escapeHtml(f.name)} <span class="url">${truncate(f.url, 40)}</span></li>`).join('')}
+            ${feeds.length > 10 ? `<li class="more">... and ${feeds.length - 10} more</li>` : ''}
+        </ul>
+    `;
+}
+
+async function handleImportFeeds(e) {
+    e.preventDefault();
+
+    if (feedsToImport.length === 0) {
+        showNotification('No feeds to import', 'error');
+        return;
+    }
+
+    const defaultCategory = document.getElementById('importCategory').value;
+    const confirmBtn = document.getElementById('confirmImport');
+    confirmBtn.disabled = true;
+    confirmBtn.textContent = 'Importing...';
+
+    let success = 0;
+    let failed = 0;
+
+    for (const feed of feedsToImport) {
+        try {
+            const formData = new FormData();
+            formData.append('url', feed.url);
+            formData.append('name', feed.name);
+            formData.append('category', feed.category || defaultCategory);
+
+            const response = await fetch('/api/v1/feeds', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                success++;
+            } else {
+                failed++;
+            }
+        } catch (error) {
+            console.error('Error importing feed:', error);
+            failed++;
+        }
+    }
+
+    closeModal('importFeedsModal');
+    e.target.reset();
+    feedsToImport = [];
+    document.getElementById('importPreview').innerHTML = '<p class="placeholder">Select a file to preview feeds...</p>';
+
+    loadFeeds();
+    showNotification(`Imported ${success} feeds (${failed} failed)`, success > 0 ? 'success' : 'warning');
+
+    confirmBtn.disabled = false;
+    confirmBtn.textContent = 'Import Feeds';
 }
 
 // Utility functions
