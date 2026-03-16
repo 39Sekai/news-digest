@@ -1,3 +1,4 @@
-# Main Pipeline
+"""Main Pipeline
 
 Daily news digest pipeline.
+"""
