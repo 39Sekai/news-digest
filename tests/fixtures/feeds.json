@@ -1,0 +1,55 @@
+{
+  "feeds": [
+    {
+      "id": 1,
+      "url": "https://techcrunch.com/feed/",
+      "name": "TechCrunch",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "id": 2,
+      "url": "https://blog.rust-lang.org/feed.xml",
+      "name": "Rust Blog",
+      "category": "Programming",
+      "reliability": 1.0,
+      "enabled": true
+    },
+    {
+      "id": 3,
+      "url": "https://kubernetes.io/feed.xml",
+      "name": "Kubernetes.io",
+      "category": "Infrastructure",
+      "reliability": 1.0,
+      "enabled": true
+    },
+    {
+      "id": 4,
+      "url": "https://example-broken-feed.com/rss",
+      "name": "Broken Feed",
+      "category": "Test",
+      "reliability": 0.5,
+      "enabled": true,
+      "simulated_error": "HTTP 404"
+    },
+    {
+      "id": 5,
+      "url": "https://example-timeout.com/feed",
+      "name": "Slow Feed",
+      "category": "Test",
+      "reliability": 0.5,
+      "enabled": true,
+      "simulated_error": "Timeout"
+    },
+    {
+      "id": 6,
+      "url": "https://example-invalid.com/rss",
+      "name": "Invalid XML Feed",
+      "category": "Test",
+      "reliability": 0.5,
+      "enabled": true,
+      "simulated_error": "Parse Error"
+    }
+  ]
+}

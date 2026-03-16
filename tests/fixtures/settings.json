@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "post_time": "08:00",
+    "timezone": "Asia/Shanghai",
+    "max_article_age": 48,
+    "filter_mode": "top_n",
+    "top_n_limit": 10,
+    "binary_threshold": 0.6,
+    "dedupe_threshold": 0.85,
+    "enabled_categories": ["tech"],
+    "alert_on_feed_failure": true,
+    "stale_feed_hours": 168,
+    "max_feed_errors": 5
+  }
+}
