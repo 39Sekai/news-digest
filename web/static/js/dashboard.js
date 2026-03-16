@@ -23,27 +23,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadDashboardStats() {
     try {
-        const stats = await api('/api/stats');
-        
+        const stats = await api('/api/v1/stats');
+
         // Update stats cards
         updateElement('totalFeeds', formatNumber(stats.feeds.total));
         updateElement('brokenFeeds', formatNumber(stats.feeds.broken));
         updateElement('pendingBriefs', formatNumber(stats.articles.pending_briefs));
         updateElement('curatedBriefs', formatNumber(stats.articles.curated));
-        
+
         // Update brief badge
         const briefBadge = document.getElementById('briefBadge');
         if (briefBadge) {
             briefBadge.textContent = stats.articles.pending_briefs;
             briefBadge.style.display = stats.articles.pending_briefs > 0 ? 'block' : 'none';
         }
-        
+
         // Highlight action if pending briefs
         const briefAction = document.getElementById('briefAction');
         if (briefAction && stats.articles.pending_briefs > 0) {
             briefAction.classList.add('urgent');
         }
-        
+
     } catch (error) {
         console.error('Failed to load stats:', error);
     }
@@ -51,12 +51,12 @@ async function loadDashboardStats() {
 
 async function loadFeedHealth() {
     try {
-        const stats = await api('/api/stats');
-        
+        const stats = await api('/api/v1/stats');
+
         updateElement('healthyCount', formatNumber(stats.feeds.enabled - stats.feeds.broken - stats.feeds.stale));
         updateElement('staleCount', formatNumber(stats.feeds.stale));
         updateElement('brokenCount', formatNumber(stats.feeds.broken));
-        
+
     } catch (error) {
         console.error('Failed to load feed health:', error);
     }
@@ -64,11 +64,11 @@ async function loadFeedHealth() {
 
 async function showPreview() {
     try {
-        const preview = await api('/api/briefs/preview');
-        
+        const preview = await api('/api/v1/briefs/preview');
+
         const previewEl = document.getElementById('discordPreview');
         previewEl.innerHTML = renderDiscordPreview(preview);
-        
+
         openModal('previewModal');
     } catch (error) {
         console.error('Failed to load preview:', error);

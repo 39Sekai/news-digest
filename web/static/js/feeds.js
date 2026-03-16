@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadFeeds() {
     try {
-        const data = await api('/api/feeds');
+        const data = await api('/api/v1/feeds');
         feedsData = data.feeds;
         renderFeeds(feedsData);
         updateStats(data.feeds);
@@ -148,48 +148,55 @@ function filterFeeds() {
 
 async function handleAddFeed(e) {
     e.preventDefault();
-    
+
     const url = document.getElementById('feedUrl').value;
     const name = document.getElementById('feedName').value;
     const category = document.getElementById('feedCategory').value;
-    
+
     try {
-        const formData = new FormData();
-        formData.append('url', url);
-        formData.append('name', name);
-        formData.append('category', category);
-        
-        const response = await fetch('/api/feeds', {
+        const response = await fetch('/api/v1/feeds', {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                url: url,
+                name: name,
+                category: category,
+                reliability: 0.7
+            })
         });
-        
+
         if (response.ok) {
             closeModal('addFeedModal');
             e.target.reset();
             loadFeeds();
             showNotification('Feed added successfully', 'success');
         } else {
-            throw new Error('Failed to add feed');
+            const error = await response.json();
+            throw new Error(error.detail || 'Failed to add feed');
         }
     } catch (error) {
         console.error('Error adding feed:', error);
-        showNotification('Failed to add feed', 'error');
+        showNotification('Failed to add feed: ' + error.message, 'error');
     }
 }
 
 async function toggleFeed(id, enable) {
     try {
-        const endpoint = enable ? `/api/feeds/${id}/enable` : `/api/feeds/${id}/disable`;
+        const endpoint = enable ? `/api/v1/feeds/${id}/enable` : `/api/v1/feeds/${id}/disable`;
         const response = await fetch(endpoint, { method: 'POST' });
-        
+
         if (response.ok) {
             loadFeeds();
             showNotification(enable ? 'Feed enabled' : 'Feed disabled', 'success');
+        } else {
+            const error = await response.json();
+            throw new Error(error.detail || 'Failed to update feed');
         }
     } catch (error) {
         console.error('Error toggling feed:', error);
-        showNotification('Failed to update feed', 'error');
+        showNotification('Failed to update feed: ' + error.message, 'error');
     }
 }
 
@@ -289,14 +296,17 @@ async function handleImportFeeds(e) {
 
     for (const feed of feedsToImport) {
         try {
-            const formData = new FormData();
-            formData.append('url', feed.url);
-            formData.append('name', feed.name);
-            formData.append('category', feed.category || defaultCategory);
-
             const response = await fetch('/api/v1/feeds', {
                 method: 'POST',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    url: feed.url,
+                    name: feed.name,
+                    category: feed.category || defaultCategory,
+                    reliability: 0.7
+                })
             });
 
             if (response.ok) {

@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadSettings() {
     try {
-        const settings = await api('/api/settings');
+        const settings = await api('/api/v1/settings');
         currentSettings = settings;
         populateForm(settings);
     } catch (error) {
@@ -96,53 +96,57 @@ function toggleFilterMode() {
 
 async function saveSettings(e) {
     e.preventDefault();
-    
+
     const settings = collectFormData();
-    
+
     // Validate weights sum to 1.0
-    const weightSum = settings.semantic_weight + settings.recency_weight + 
+    const weightSum = settings.semantic_weight + settings.recency_weight +
                       settings.source_weight + settings.novelty_weight;
     if (Math.abs(weightSum - 1.0) > 0.001) {
         showNotification('Scoring weights must sum to 1.0', 'error');
         return;
     }
-    
+
     try {
-        const response = await fetch('/api/settings', {
+        const response = await fetch('/api/v1/settings', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(settings)
         });
-        
+
         if (response.ok) {
             currentSettings = settings;
             showNotification('Settings saved successfully', 'success');
         } else {
-            throw new Error('Failed to save settings');
+            const error = await response.json();
+            throw new Error(error.detail || 'Failed to save settings');
         }
     } catch (error) {
         console.error('Error saving settings:', error);
-        showNotification('Failed to save settings', 'error');
+        showNotification('Failed to save settings: ' + error.message, 'error');
     }
 }
 
 async function resetSettings() {
     if (!confirm('Reset all settings to defaults?')) return;
-    
+
     try {
-        const response = await fetch('/api/settings/reset', {
+        const response = await fetch('/api/v1/settings/reset', {
             method: 'POST'
         });
-        
+
         if (response.ok) {
             const settings = await response.json();
             currentSettings = settings.settings;
             populateForm(currentSettings);
             showNotification('Settings reset to defaults', 'success');
+        } else {
+            const error = await response.json();
+            throw new Error(error.detail || 'Failed to reset settings');
         }
     } catch (error) {
         console.error('Error resetting settings:', error);
-        showNotification('Failed to reset settings', 'error');
+        showNotification('Failed to reset settings: ' + error.message, 'error');
     }
 }
 

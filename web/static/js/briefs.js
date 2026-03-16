@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadBriefQueue() {
     try {
-        const data = await api('/api/briefs/queue');
+        const data = await api('/api/v1/briefs/queue');
         briefQueue = data.articles;
         renderBriefQueue(briefQueue);
         updateProgress();
@@ -90,55 +90,61 @@ function updateProgress() {
 
 async function saveBrief(articleId, brief) {
     if (!brief.trim()) return;
-    
+
     try {
-        const formData = new FormData();
-        formData.append('brief', brief.trim());
-        
-        const response = await fetch(`/api/briefs/${articleId}`, {
+        const response = await fetch(`/api/v1/briefs/${articleId}`, {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ brief: brief.trim() })
         });
-        
+
         if (response.ok) {
             // Update local data
             const article = briefQueue.find(a => a.id === articleId);
             if (article) {
                 article.brief = brief.trim();
             }
-            
+
             // Update UI
             const item = document.querySelector(`.brief-item[data-id="${articleId}"]`);
             if (item) {
                 item.classList.remove('needs-brief');
                 item.classList.add('curated');
             }
-            
+
             updateProgress();
             showNotification('Brief saved', 'success');
+        } else {
+            const error = await response.json();
+            throw new Error(error.detail || 'Failed to save brief');
         }
     } catch (error) {
         console.error('Error saving brief:', error);
-        showNotification('Failed to save brief', 'error');
+        showNotification('Failed to save brief: ' + error.message, 'error');
     }
 }
 
 async function skipArticle(articleId) {
     try {
-        const response = await fetch(`/api/briefs/${articleId}/skip`, {
+        const response = await fetch(`/api/v1/briefs/${articleId}/skip`, {
             method: 'POST'
         });
-        
+
         if (response.ok) {
             // Remove from queue
             briefQueue = briefQueue.filter(a => a.id !== articleId);
             renderBriefQueue(briefQueue);
             updateProgress();
             showNotification('Article skipped', 'info');
+        } else {
+            const error = await response.json();
+            throw new Error(error.detail || 'Failed to skip article');
         }
     } catch (error) {
         console.error('Error skipping article:', error);
-        showNotification('Failed to skip article', 'error');
+        showNotification('Failed to skip article: ' + error.message, 'error');
     }
 }
 
@@ -176,11 +182,11 @@ async function autoFillBriefs() {
 
 async function showPreview() {
     try {
-        const preview = await api('/api/briefs/preview');
-        
+        const preview = await api('/api/v1/briefs/preview');
+
         const previewEl = document.getElementById('discordPreview');
         previewEl.innerHTML = renderDiscordPreview(preview);
-        
+
         openModal('previewModal');
     } catch (error) {
         console.error('Failed to load preview:', error);
