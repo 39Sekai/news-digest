@@ -89,24 +89,26 @@
             </div>
         </section>
 
-        <!-- Feed Health -->
-        <section class="feed-health">
-            <h2>Feed Health</h2>
-            <div class="health-summary">
-                <div class="health-item">
-                    <span class="health-dot healthy"></span>
-                    <span class="health-label">Healthy</span>
-                    <span class="health-count" id="healthyCount">-</span>
+        <!-- Feed Health Widget -->
+        <section class="feed-health-widget">
+            <h2>📡 Feed Health Monitor</h2>
+            <p class="section-help">Feeds auto-disable after 5 consecutive errors. <a href="/feeds">Manage feeds →</a></p>
+            <div id="feedHealthWidget" class="health-grid">
+                <div class="health-stat healthy">
+                    <span class="health-number">-</span>
+                    <span class="health-label">✅ Healthy</span>
                 </div>
-                <div class="health-item">
-                    <span class="health-dot stale"></span>
-                    <span class="health-label">Stale</span>
-                    <span class="health-count" id="staleCount">-</span>
+                <div class="health-stat warning">
+                    <span class="health-number">-</span>
+                    <span class="health-label">⚠️ With Errors</span>
                 </div>
-                <div class="health-item">
-                    <span class="health-dot broken"></span>
-                    <span class="health-label">Broken</span>
-                    <span class="health-count" id="brokenCount">-</span>
+                <div class="health-stat disabled">
+                    <span class="health-number">-</span>
+                    <span class="health-label">❌ Disabled</span>
+                </div>
+                <div class="health-stat total">
+                    <span class="health-number">-</span>
+                    <span class="health-label">📡 Total</span>
                 </div>
             </div>
         </section>

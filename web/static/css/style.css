@@ -795,6 +795,116 @@ body {
     gap: 12px;
 }
 
+/* Feed Health Widget */
+.feed-health-widget {
+    margin-bottom: 32px;
+}
+
+.feed-health-widget h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.feed-health-widget .section-help {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    margin-bottom: 16px;
+}
+
+.feed-health-widget .section-help a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.health-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+}
+
+.health-stat {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.health-stat:hover {
+    border-color: var(--color-primary);
+}
+
+.health-stat.healthy {
+    border-left: 3px solid var(--color-success);
+}
+
+.health-stat.warning {
+    border-left: 3px solid var(--color-warning);
+}
+
+.health-stat.disabled {
+    border-left: 3px solid var(--color-danger);
+}
+
+.health-stat.total {
+    border-left: 3px solid var(--color-primary);
+}
+
+.health-number {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 4px;
+}
+
+.health-label {
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+/* Feed Item Health Indicators */
+.feed-item {
+    transition: all 0.2s;
+}
+
+.feed-item.error {
+    border-left: 3px solid var(--color-warning);
+}
+
+.feed-item.broken,
+.feed-item.disabled {
+    border-left: 3px solid var(--color-danger);
+    opacity: 0.8;
+}
+
+.feed-item.disabled .feed-name {
+    text-decoration: line-through;
+    color: var(--color-text-muted);
+}
+
+.feed-error {
+    font-size: 12px;
+    color: var(--color-warning);
+    margin-top: 4px;
+    font-style: italic;
+}
+
+.status-badge.error {
+    background: rgba(247, 179, 43, 0.2);
+    color: var(--color-warning);
+}
+
+.status-badge.disabled {
+    background: var(--color-border);
+    color: var(--color-text-muted);
+}
+
 /* Import Preview */
 .import-preview {
     background: var(--color-bg);

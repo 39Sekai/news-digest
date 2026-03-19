@@ -81,6 +81,28 @@ async function loadFeeds() {
     }
 }
 
+function getFeedHealthStatus(feed) {
+    // Compute health status from feed data
+    if (!feed.enabled) {
+        return { status: 'disabled', label: 'Disabled', class: 'disabled' };
+    }
+    if (feed.error_count >= 5) {
+        return { status: 'broken', label: 'Broken', class: 'broken' };
+    }
+    if (feed.error_count > 0) {
+        return { status: 'error', label: `${feed.error_count} errors`, class: 'error' };
+    }
+    // Check if stale (no articles in 7 days)
+    const lastArticle = feed.last_article_at;
+    if (lastArticle) {
+        const daysSince = (Date.now() - new Date(lastArticle).getTime()) / (1000 * 60 * 60 * 24);
+        if (daysSince > 7) {
+            return { status: 'stale', label: 'Stale', class: 'stale' };
+        }
+    }
+    return { status: 'healthy', label: 'Healthy', class: 'healthy' };
+}
+
 function renderFeeds(feeds) {
     const list = document.getElementById('feedList');
     
@@ -89,38 +111,56 @@ function renderFeeds(feeds) {
         return;
     }
     
-    list.innerHTML = feeds.map(feed => `
-        <div class="feed-item" data-id="${feed.id}">
+    list.innerHTML = feeds.map(feed => {
+        const health = getFeedHealthStatus(feed);
+        const lastError = feed.last_error ? truncate(feed.last_error, 40) : null;
+        
+        return `
+        <div class="feed-item ${health.class}" data-id="${feed.id}">
             <div class="feed-info">
                 <div class="feed-name">${escapeHtml(feed.name)}</div>
                 <div class="feed-meta">
                     ${feed.category} • ${truncate(feed.url, 50)} • 
-                    ${feed.article_count} articles
+                    ${feed.article_count || 0} articles
                     ${feed.last_fetch ? '• Updated ' + timeAgo(feed.last_fetch) : ''}
                 </div>
+                ${lastError && feed.enabled ? `<div class="feed-error" title="${escapeHtml(feed.last_error)}">⚠️ ${escapeHtml(lastError)}</div>` : ''}
             </div>
             <div class="feed-status">
-                <span class="status-badge ${feed.status}">${feed.status}</span>
-                <button class="btn btn-sm btn-secondary" onclick="editFeed(${feed.id})">Edit</button>
-                <button class="btn btn-sm ${feed.enabled ? 'btn-secondary' : 'btn-primary'}" 
-                        onclick="toggleFeed(${feed.id}, ${!feed.enabled})">
-                    ${feed.enabled ? 'Disable' : 'Enable'}
-                </button>
+                <span class="status-badge ${health.class}" title="Error count: ${feed.error_count || 0}">${health.label}</span>
+                ${feed.enabled ? `
+                    <button class="btn btn-sm btn-secondary" onclick="editFeed(${feed.id})">Edit</button>
+                    <button class="btn btn-sm btn-secondary" onclick="toggleFeed(${feed.id}, false)">Disable</button>
+                ` : `
+                    <button class="btn btn-sm btn-primary" onclick="toggleFeed(${feed.id}, true)">Re-enable</button>
+                    <button class="btn btn-sm btn-danger" onclick="deleteFeed(${feed.id})">Delete</button>
+                `}
             </div>
         </div>
-    `).join('');
+    `}).join('');
 }
 
 function updateStats(feeds) {
     const total = feeds.length;
-    const healthy = feeds.filter(f => f.status === 'healthy').length;
-    const stale = feeds.filter(f => f.status === 'stale').length;
-    const broken = feeds.filter(f => f.status === 'broken').length;
+    const healthy = feeds.filter(f => f.enabled && (f.error_count || 0) === 0).length;
+    const withErrors = feeds.filter(f => f.enabled && (f.error_count || 0) > 0 && (f.error_count || 0) < 5).length;
+    const broken = feeds.filter(f => !f.enabled || (f.error_count || 0) >= 5).length;
     
-    updateElement('totalCount', total);
-    updateElement('healthyCount', healthy);
-    updateElement('staleCount', stale);
-    updateElement('brokenCount', broken);
+    // Update stats display if elements exist
+    const totalEl = document.getElementById('totalCount');
+    const healthyEl = document.getElementById('healthyCount');
+    const errorEl = document.getElementById('errorCount');
+    const brokenEl = document.getElementById('brokenCount');
+    
+    if (totalEl) totalEl.textContent = total;
+    if (healthyEl) healthyEl.textContent = healthy;
+    if (errorEl) errorEl.textContent = withErrors;
+    if (brokenEl) brokenEl.textContent = broken;
+    
+    // Also update the old element IDs for backward compatibility
+    updateElement('totalFeeds', total);
+    updateElement('healthyFeeds', healthy);
+    updateElement('brokenFeeds', broken);
 }
 
 function filterFeeds() {
@@ -203,6 +243,29 @@ async function toggleFeed(id, enable) {
 function editFeed(id) {
     // TODO: Implement edit modal
     showNotification('Edit feature coming soon', 'info');
+}
+
+async function deleteFeed(id) {
+    if (!confirm('Permanently delete this feed? This cannot be undone.')) {
+        return;
+    }
+    
+    try {
+        const response = await fetch(`/api/v1/feeds/${id}`, {
+            method: 'DELETE'
+        });
+        
+        if (response.ok) {
+            loadFeeds();
+            showNotification('Feed deleted', 'success');
+        } else {
+            const error = await response.json();
+            throw new Error(error.detail || 'Failed to delete feed');
+        }
+    } catch (error) {
+        console.error('Error deleting feed:', error);
+        showNotification('Failed to delete feed: ' + error.message, 'error');
+    }
 }
 
 // Import functionality

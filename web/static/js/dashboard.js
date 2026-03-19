@@ -51,11 +51,43 @@ async function loadDashboardStats() {
 
 async function loadFeedHealth() {
     try {
-        const stats = await api('/api/v1/stats');
+        // Fetch actual feeds to compute health
+        const data = await api('/api/v1/feeds');
+        const feeds = data.feeds;
+        
+        const total = feeds.length;
+        const healthy = feeds.filter(f => f.enabled && (f.error_count || 0) === 0).length;
+        const withErrors = feeds.filter(f => f.enabled && (f.error_count || 0) > 0 && (f.error_count || 0) < 5).length;
+        const disabled = feeds.filter(f => !f.enabled).length;
+        
+        // Update feed health widget
+        const feedHealthEl = document.getElementById('feedHealthWidget');
+        if (feedHealthEl) {
+            feedHealthEl.innerHTML = `
+                <div class="health-stat healthy">
+                    <span class="health-number">${healthy}</span>
+                    <span class="health-label">✅ Healthy</span>
+                </div>
+                <div class="health-stat warning">
+                    <span class="health-number">${withErrors}</span>
+                    <span class="health-label">⚠️ Errors</span>
+                </div>
+                <div class="health-stat disabled">
+                    <span class="health-number">${disabled}</span>
+                    <span class="health-label">❌ Disabled</span>
+                </div>
+                <div class="health-stat total">
+                    <span class="health-number">${total}</span>
+                    <span class="health-label">📡 Total</span>
+                </div>
+            `;
+        }
 
-        updateElement('healthyCount', formatNumber(stats.feeds.enabled - stats.feeds.broken - stats.feeds.stale));
-        updateElement('staleCount', formatNumber(stats.feeds.stale));
-        updateElement('brokenCount', formatNumber(stats.feeds.broken));
+        // Also update legacy elements
+        updateElement('healthyCount', formatNumber(healthy));
+        updateElement('errorCount', formatNumber(withErrors));
+        updateElement('disabledCount', formatNumber(disabled));
+        updateElement('totalCount', formatNumber(total));
 
     } catch (error) {
         console.error('Failed to load feed health:', error);
