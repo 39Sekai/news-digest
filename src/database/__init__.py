@@ -224,15 +224,20 @@ def delete_feed(feed_id: int) -> bool:
 
 
 def record_feed_error(feed_id: int, error: str):
-    """Record a fetch error for a feed."""
+    """Record a fetch error for a feed.
+    
+    Auto-disables feed after max_feed_errors consecutive failures.
+    """
+    max_errors = int(get_setting("max_feed_errors") or 5)
     with get_db() as conn:
+        # Use error_count + 1 to check against the NEW value after increment
         conn.execute(
             """UPDATE feeds 
                SET error_count = error_count + 1, 
                    last_error = ?,
-                   enabled = CASE WHEN error_count >= ? THEN 0 ELSE enabled END
+                   enabled = CASE WHEN error_count + 1 >= ? THEN 0 ELSE enabled END
                WHERE id = ?""",
-            (error, int(get_setting("max_feed_errors") or 5), feed_id)
+            (error, max_errors, feed_id)
         )
         conn.commit()
 
@@ -472,6 +477,79 @@ def get_stats() -> dict:
         stats["stale_feeds"] = row["count"]
         
         return stats
+
+
+# Feed health operations
+
+def list_broken_feeds() -> list[dict]:
+    """List feeds with errors (error_count > 0)."""
+    with get_db() as conn:
+        rows = conn.execute(
+            """SELECT * FROM feeds 
+               WHERE error_count > 0 
+               ORDER BY error_count DESC, last_error DESC"""
+        ).fetchall()
+        return [dict(row) for row in rows]
+
+
+def list_disabled_feeds() -> list[dict]:
+    """List disabled feeds."""
+    with get_db() as conn:
+        rows = conn.execute(
+            """SELECT * FROM feeds 
+               WHERE enabled = 0 
+               ORDER BY name"""
+        ).fetchall()
+        return [dict(row) for row in rows]
+
+
+def get_feed_health_summary() -> dict:
+    """Get comprehensive feed health summary."""
+    with get_db() as conn:
+        summary = {
+            "total": 0,
+            "healthy": 0,
+            "with_errors": 0,
+            "disabled": 0,
+            "stale": 0
+        }
+        
+        # Total feeds
+        row = conn.execute("SELECT COUNT(*) as count FROM feeds").fetchone()
+        summary["total"] = row["count"]
+        
+        # Healthy: enabled, no errors, fetched recently
+        row = conn.execute(
+            """SELECT COUNT(*) as count FROM feeds 
+               WHERE enabled = 1 AND error_count = 0"""
+        ).fetchone()
+        summary["healthy"] = row["count"]
+        
+        # With errors but still enabled
+        row = conn.execute(
+            """SELECT COUNT(*) as count FROM feeds 
+               WHERE enabled = 1 AND error_count > 0"""
+        ).fetchone()
+        summary["with_errors"] = row["count"]
+        
+        # Disabled
+        row = conn.execute(
+            "SELECT COUNT(*) as count FROM feeds WHERE enabled = 0"
+        ).fetchone()
+        summary["disabled"] = row["count"]
+        
+        # Stale (no articles in stale_feed_hours)
+        stale_hours = int(get_setting("stale_feed_hours") or 168)
+        row = conn.execute(
+            """SELECT COUNT(*) as count FROM feeds 
+               WHERE (last_article_at < datetime('now', ?) 
+                      OR last_article_at IS NULL)
+               AND enabled = 1""",
+            (f"-{stale_hours} hours",)
+        ).fetchone()
+        summary["stale"] = row["count"]
+        
+        return summary
 
 
 # Initialize on import

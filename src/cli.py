@@ -25,7 +25,8 @@ from pathlib import Path
 from .database import (
     init_db, ensure_default_settings, get_stats, list_feeds, add_feed,
     update_feed, delete_feed, get_feed, list_articles_for_review,
-    add_brief, delete_brief, get_brief
+    add_brief, delete_brief, get_brief, list_broken_feeds,
+    list_disabled_feeds, get_feed_health_summary
 )
 from .fetcher import fetch_all_feeds, import_feeds_from_json
 from .scorer import score_and_rank_articles
@@ -249,6 +250,77 @@ def cmd_feeds_import(args):
     return 0
 
 
+def cmd_feeds_broken(args):
+    """List broken feeds (with errors)."""
+    init_db()
+    
+    feeds = list_broken_feeds()
+    
+    if not feeds:
+        print("\n✅ No broken feeds - all feeds are healthy!")
+        return 0
+    
+    print(f"\n⚠️  Broken Feeds ({len(feeds)} total)\n")
+    print(f"{'ID':<4} {'Name':<25} {'Errors':<7} {'Last Error':<40}")
+    print("-" * 85)
+    
+    for feed in feeds[:30]:  # Show first 30
+        name = feed['name'][:24]
+        errors = feed.get('error_count', 0)
+        last_error = feed.get('last_error', 'Unknown')[:38]
+        print(f"{feed['id']:<4} {name:<25} {errors:<7} {last_error}")
+    
+    if len(feeds) > 30:
+        print(f"\n... and {len(feeds) - 30} more")
+    
+    return 0
+
+
+def cmd_feeds_disabled(args):
+    """List disabled feeds."""
+    init_db()
+    
+    feeds = list_disabled_feeds()
+    
+    if not feeds:
+        print("\n✅ No disabled feeds")
+        return 0
+    
+    print(f"\n❌ Disabled Feeds ({len(feeds)} total)\n")
+    print(f"{'ID':<4} {'Name':<25} {'Errors':<7} {'Last Error':<40}")
+    print("-" * 85)
+    
+    for feed in feeds[:30]:
+        name = feed['name'][:24]
+        errors = feed.get('error_count', 0)
+        last_error = feed.get('last_error', 'Unknown')[:38]
+        print(f"{feed['id']:<4} {name:<25} {errors:<7} {last_error}")
+    
+    print(f"\n💡 Re-enable with: news-digest.py feeds enable <id>")
+    return 0
+
+
+def cmd_feeds_health(args):
+    """Show feed health summary."""
+    init_db()
+    
+    summary = get_feed_health_summary()
+    
+    print("\n📡 Feed Health Summary\n")
+    print(f"  Total feeds:     {summary['total']}")
+    print(f"  ✅ Healthy:      {summary['healthy']}")
+    print(f"  ⚠️  With errors:  {summary['with_errors']}")
+    print(f"  ❌ Disabled:     {summary['disabled']}")
+    print(f"  💤 Stale:        {summary['stale']}")
+    print()
+    
+    health_pct = (summary['healthy'] / summary['total'] * 100) if summary['total'] > 0 else 0
+    print(f"  Health rate: {health_pct:.1f}%")
+    print()
+    
+    return 0
+
+
 def cmd_briefs_queue(args):
     """Show articles needing brief review."""
     init_db()
@@ -405,6 +477,18 @@ def main():
     feeds_import_parser = feeds_subparsers.add_parser('import', help='Import feeds from JSON')
     feeds_import_parser.add_argument('file', help='JSON file path')
     feeds_import_parser.set_defaults(func=cmd_feeds_import)
+    
+    # feeds broken
+    feeds_broken_parser = feeds_subparsers.add_parser('broken', help='List broken feeds')
+    feeds_broken_parser.set_defaults(func=cmd_feeds_broken)
+    
+    # feeds disabled
+    feeds_disabled_parser = feeds_subparsers.add_parser('disabled', help='List disabled feeds')
+    feeds_disabled_parser.set_defaults(func=cmd_feeds_disabled)
+    
+    # feeds health
+    feeds_health_parser = feeds_subparsers.add_parser('health', help='Show feed health summary')
+    feeds_health_parser.set_defaults(func=cmd_feeds_health)
     
     # Briefs subcommand
     briefs_parser = subparsers.add_parser('briefs', help='Manage article briefs')
