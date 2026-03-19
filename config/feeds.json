@@ -1,9 +1,2251 @@
 {
   "feeds": [
-    {"url": "https://news.ycombinator.com/rss", "name": "Hacker News", "category": "tech", "reliability": 0.9, "enabled": true},
-    {"url": "https://feeds.arstechnica.com/arstechnica/index", "name": "Ars Technica", "category": "tech", "reliability": 0.9, "enabled": true},
-    {"url": "https://techcrunch.com/feed/", "name": "TechCrunch", "category": "tech", "reliability": 0.85, "enabled": true},
-    {"url": "https://www.theverge.com/rss/index.xml", "name": "The Verge", "category": "tech", "reliability": 0.85, "enabled": true},
-    {"url": "https://www.wired.com/feed/rss", "name": "Wired", "category": "tech", "reliability": 0.9, "enabled": true}
+    {
+      "url": "https://www.google.com/alerts/feeds/08268053496284463575/5106194776093323230",
+      "name": "Google Alert - mihoyo hoyofest 2025",
+      "category": "alerts",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.google.com/alerts/feeds/08268053496284463575/11914087447087615223",
+      "name": "Google Alert - grok ani android",
+      "category": "alerts",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://rss.beehiiv.com/feeds/BbNzf9ozGZ.xml",
+      "name": "Star History",
+      "category": "general",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSHZKyawb77ixDdsGog4iWA",
+      "name": "Lex Fridman",
+      "category": "general",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.ruanyifeng.com/blog/atom.xml",
+      "name": "阮一峰的网络日志",
+      "category": "general",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://developers.googleblog.com/feeds/posts/default",
+      "name": "Google Developers Blog",
+      "category": "general",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://ifttt.com/stories.rss",
+      "name": "IFTTT Explore",
+      "category": "general",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCAuUUnT6oDeKwE6v1NGQxug",
+      "name": "TED",
+      "category": "general",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCX6b17PVsYBQ0ip5gyeme-Q",
+      "name": "CrashCourse",
+      "category": "general",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://csdl-api.computer.org/api/rss/periodicals/trans/ta/rss.xml",
+      "name": "Affective Computing - IEEE Transactions",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCQALLeQPoZdZC4JNUboVEUg",
+      "name": "SEFD Science",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&oc=11&q=meta%20superintelligence%20lab",
+      "name": "\"meta superintelligence lab\" - Google News",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://news.google.com/news/rss/search?q=xAI&hl=en",
+      "name": "\"xAI\" - Google News",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://news.google.com/news/rss/search?q=openai&hl=en",
+      "name": "\"openai\" - Google News",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://qwenlm.github.io/blog/index.xml",
+      "name": "Blog on Qwen",
+      "category": "AI",
+      "reliability": 0.7,
+      "enabled": true
+    },
+    {
+      "url": "https://rsshub.app/huggingface/daily-papers",
+      "name": "Huggingface Daily Papers",
+      "category": "AI",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UChugFTK0KyrES9terTid8vA",
+      "name": "Stanford HAI",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/singularity/.rss",
+      "name": "r/singularity",
+      "category": "AI",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://rsshub.app/deeplearning/the-batch",
+      "name": "The Batch | DeepLearning.AI | AI News & Insights",
+      "category": "AI",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCcIXc5mJsHVYTZR1maL5l9w",
+      "name": "Deeplearning.ai",
+      "category": "AI",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://blog.coursera.org/rss",
+      "name": "Coursera Blog",
+      "category": "AI",
+      "reliability": 0.7,
+      "enabled": true
+    },
+    {
+      "url": "https://deepmind.com/blog/rss.xml",
+      "name": "DeepMind Blog",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC8WCW6C3BWLKSZ5cMzD8Gyw",
+      "name": "Mu Li",
+      "category": "AI",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://blog.csdn.net/datawhale/rss/list",
+      "name": "Datawhale的博客",
+      "category": "AI",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://blogs.nvidia.com/feed/",
+      "name": "NVIDIA",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://blog.openai.com/rss/",
+      "name": "OpenAI Blog",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://huggingface.co/blog/feed.xml",
+      "name": "Hugging Face - Blog",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://news.google.com/news/rss/search?q=grok&hl=en",
+      "name": "\"grok\" - Google News",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://news.google.com/news/rss/search?q=deepseek&hl=en",
+      "name": "\"deepseek\" - Google News",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.qbitai.com/feed",
+      "name": "量子位",
+      "category": "AI",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/ChatGPT/.rss",
+      "name": "r/ChatGPT",
+      "category": "AI",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://www.jiqizhixin.com/rss",
+      "name": "机器之心Rss订阅",
+      "category": "AI",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://lesswrong.com/.rss",
+      "name": "Less Wrong",
+      "category": "AI",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://www.sciencedaily.com/rss/computers_math/artificial_intelligence.xml",
+      "name": "Artificial Intelligence News -- ScienceDaily",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://web.mit.edu/newsoffice/topic/mitcomputers-rss.xml",
+      "name": "MIT News - Computer Science and Artificial Intelligence Laboratory (CSAIL)",
+      "category": "AI",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&oc=11&q=unitree",
+      "name": "\"unitree\" - Google News",
+      "category": "tech",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://web.mit.edu/newsoffice/topic/mitrobotics-rss.xml",
+      "name": "MIT News - Robotics",
+      "category": "tech",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://news.google.com/news/rss/search?q=figure%20ai&hl=en",
+      "name": "\"figure ai\" - Google News",
+      "category": "tech",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/compsci/.rss",
+      "name": "r/compsci",
+      "category": "tech",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/linux/.rss",
+      "name": "r/Linux",
+      "category": "tech",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://obsidian.md/changelog.xml",
+      "name": "Obsidian Changelog",
+      "category": "tech",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://www.engadget.com/rss.xml",
+      "name": "Engadget",
+      "category": "tech",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw",
+      "name": "LinusTechTips",
+      "category": "tech",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://news.google.com/news/rss/search/section/q/tesla/tesla?hl=en&gl=US",
+      "name": "tesla - Google News",
+      "category": "tech",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.roadtovr.com/feed/",
+      "name": "Road to Virtual Reality",
+      "category": "tech",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://www.sec-wiki.com/news/rss",
+      "name": "SecWiki News",
+      "category": "tech",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://thehackernews.com/feeds/posts/default",
+      "name": "The Hacker News",
+      "category": "tech",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "http://bulknews.net/rss/rdf.cgi?Asahi",
+      "name": "asahi.com",
+      "category": "society",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://assets.wor.jp/rss/rdf/yomiuri/latestnews.rdf",
+      "name": "読売新聞 新着",
+      "category": "society",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://news.nus.edu.sg/feed/",
+      "name": "NUS - National University of Singapore Newsroom",
+      "category": "education",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://www.caltech.edu/news/rss.xml",
+      "name": "Caltech News",
+      "category": "education",
+      "reliability": 0.85,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFe-pfe0a9bDvWy74Jd7vFg",
+      "name": "Massachusetts Institute of Technology (MIT)",
+      "category": "education",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEBb1b_L6zDS3xTUrIALZOw",
+      "name": "MIT OpenCourseWare",
+      "category": "education",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC-EnprmCZ3OXyAoG7vjVNCA",
+      "name": "Stanford",
+      "category": "education",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBa5G_ESCn8Yd4vw5U-gIcg",
+      "name": "stanfordonline",
+      "category": "education",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.nasaspaceflight.com/tag/spacex/feed/",
+      "name": "SpaceX – NASASpaceFlight.com",
+      "category": "space",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.spacedaily.com/dragonspace.xml",
+      "name": "China Space News",
+      "category": "space",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/space/.rss",
+      "name": "r/space",
+      "category": "space",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOvfZCGGft-KwjVh7XihUOg",
+      "name": "Blue Sechi",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNrdR2m8fxDBNbxJDBFPFNQ",
+      "name": "『超かぐや姫 ! 』公式",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCS01AmGRnAk4hTVoxmnZdmQ",
+      "name": "恋するマフィア【YouTubeアニメ】",
+      "category": "video",
+      "reliability": 0.7,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCUyeluBRhGPCW4rPe_UvBZQ",
+      "name": "ThePrimeTime",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCnsbQM9ZgyCvYdHVRlRr8dg",
+      "name": "C418",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC5CwaMl1eIgY8h02uZw7u8A",
+      "name": "Suisei Channel",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrmQZ9HHnJ2qpd6udc8iYYw",
+      "name": "Nicole van der Hoeven",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrUSWRGrJt43ybIbtI--slg",
+      "name": "Caramella Girls",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCaiyYe8KqwyEsE128DwWKwQ",
+      "name": "Kraul Express",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UClr57MMpeX6m_p6hvvhu1Fw",
+      "name": "cat capoo",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCmDodc4RZZHh8yRJP2aAuIQ",
+      "name": "GIRLS' FRONTLINE 2: EXILIUM-Official",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCASfMqgvKDfdTvozY0nOcvA",
+      "name": "칰타",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVjlpEjEY9GpksqbEesJnNA",
+      "name": "mrnigelng",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCq8DICunczvLuJJq414110A",
+      "name": "Zach King Vine",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbRP3c757lWg9M-U7TyEkXA",
+      "name": "Theo - T3 Tools",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSE6yilNScIz1SLTNQvrXMw",
+      "name": "Vinheteiro",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCYWJTcV_8ceDND5q4AJHiVQ",
+      "name": "Active NEETs",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCLKHdCa1tV46yvRMCP_bC_A",
+      "name": "ちょこふぁん",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCQ3zfsi6srVaJFfBjoOSmCA",
+      "name": "ヨシヲのゆっくり",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC7KAwL07fBYng6u3K1fwrCQ",
+      "name": "SOUND HOLIC",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCGteuPMOJgrJ1ZiVmtfqwFA",
+      "name": "yasai31",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCRIQSjUwOSSLSsG0LM_ae9A",
+      "name": "学マス妄想部",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCfc69vak-dupeXgofZ57ihw",
+      "name": "Mochi",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvpredjG93ifbCP1Y77JyFA",
+      "name": "Ayase",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCRyJGOSOyvW1wTUdRoJ0SDQ",
+      "name": "囧仙",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC7IDepfsi2m_ha3ViKsSy9w",
+      "name": "Hoxton Texas",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCAiyh1F-ex4oIPfKNQ8oqJA",
+      "name": "JAGMO",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCHYbgK3TDYlBDANhv5NPwQQ",
+      "name": "Asa Toshi",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEy1orNlpm4eMeYN-lJQdbQ",
+      "name": "我夢チャンネル",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCl7OsED7y9eavZJbTGnK0xg",
+      "name": "岸田教団&THE明星ロケッツ Official",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOxvBvlRGKjf0ZWfVEdneKA",
+      "name": "森羅万象",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZaFfDBBCqmYdfp6DJl0cRw",
+      "name": "Records 暁",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCnuEsJIldN96v4lMc7vIKKA",
+      "name": "ほらいむ",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC7_53g75aj47CXi2rVYDIKw",
+      "name": "iosyshaitenai",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC8VoGhQC9enEacXs4fYVxRw",
+      "name": "manpukujinja",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrIrRpXL1F7B03ozb_VECiQ",
+      "name": "A-One Official",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEWPBeRRkHo0QXXy_CgoxsA",
+      "name": "Vocaloid 02",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCDaNhtCAFnvRKIyI8j8mObg",
+      "name": "yuuyu_ssry(ゆうゆ)",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCsHscSLQ8Rmzj6m2-RPGbrg",
+      "name": "Arni Village",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOk_xvWwcQD59AtNz6rlJww",
+      "name": "Mush-Broom",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCoWwV7iynMfwK1bd8XvjxHQ",
+      "name": "Aegis Channel",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCskGtChqHxfir7OeCHethPQ",
+      "name": "21 6",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCmfFEuQzMCeIc0XkWVAEW8w",
+      "name": "だんぶち",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC7n2SL8MQ5Gr1TsS43IMwGg",
+      "name": "Riri Zpt",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCQUCRuAjhY371TFm5qYLXxg",
+      "name": "まらしぃちゃん / marasy chan",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCkoNwhfCPUiWbkmoUoa7XNg",
+      "name": "Mirae Somang",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEc2gctIynWHMDq2tuCBPJw",
+      "name": "minusT",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCssDJUM5RWuahuz6rhw5tHA",
+      "name": "WindsScore",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCmzieQGdu7fTXaPqi2AuXyg",
+      "name": "yuuheitube2011",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCB88E7FGdujsdIhTqD6SeHg",
+      "name": "遥そら『多次元チャンネル』",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOzWD4b_-q77XTaSl89OukA",
+      "name": "yuzusoft2007",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCYiYZYbDlyy17QiX5CxCTeQ",
+      "name": "Team Shanghai Alice - Topic",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCiipJgscQRIxaugbhmOsxRA",
+      "name": "Dave Rodgers",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEHXNknwbsRu73QsakWIdzQ",
+      "name": "The8BitDrummer",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCln9P4Qm3-EAY4aiEPmRwEA",
+      "name": "Ado",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNMG8dXjgqxS94dHljP9duQ",
+      "name": "鈴木ゆゆうた",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCuq1ynSBN4ROHC1bHJNlrWQ",
+      "name": "常世ノ闇",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvy_1uRgNNu-h3JJCJOGfpw",
+      "name": "キノシタ/kinoshita",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UClKezL95WNrPgDL70MnWFTw",
+      "name": "よみぃP",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZ3h7IyAMbrVgvmxTdj-rpA",
+      "name": "よみぃ",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCKHjhlcGLcl95Guve-VsO4g",
+      "name": "まちだもん",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCt30jJgChL8qeT9VPadidSw",
+      "name": "しぐれうい",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCAiB9gUSxB_mN0B-0QytV7w",
+      "name": "Stanford Summer",
+      "category": "video",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMPNkOyomHEpeJ7bTbI8SWA",
+      "name": "Nightcord at 25:00 - Topic",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC5CUtFP0vJCCgd_iVbVytKw",
+      "name": "Neurosoda",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCnBtJXmyVRjMnZOpQseqN8A",
+      "name": "MORE MORE JUMP! - Topic",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvLSQKf5Ox7oX4yS1-YVAuw",
+      "name": "majin_kz",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCla0JSqKIh0o7tLZ95mEqdA",
+      "name": "Maaya",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFS8ufY-kpFAET9fJhSwpyQ",
+      "name": "Leo/need - Topic",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC6IhDHJbJUoRJGUPnlh5GRQ",
+      "name": "kessoku band - Topic",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCUCeZaZeJbEYAAzvMgrKOPQ",
+      "name": "米津玄師",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCQALLeQPoZdZC4JNUboVEUg",
+      "name": "SEFD Science",
+      "category": "video",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNats-h_Vr0pEh5OtZo6eVw",
+      "name": "IOSYS - Topic",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNS0t8oyF81-_SpYMtqNhzA",
+      "name": "Vivid BAD SQUAD - Topic",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSVe_NzxYvegv-f5pWBbS5A",
+      "name": "Atena",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBvWfh5pkiCdApbtS0eaMIg",
+      "name": "826aska",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCGGY3oTOQ9g9FCu9hLFJsqw",
+      "name": "[OFFICIAL] *Luna",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZEZcozbf3e339wn3eZ31Tw",
+      "name": "IMOJIST",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UClxXuM2m0rIL9VCA1ds9HqA",
+      "name": "Neru OFFICIAL",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvq3kUGY5Dbsdkr3DZx25Sw",
+      "name": "Giga",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCGHt57Ski7CTILqP8IXRgIg",
+      "name": "あぎりさんぽ",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCQhaO68SSoKmQ9RBRCy7pAQ",
+      "name": "Omoi3965",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrGzu0MPKQpYF2AV2oG-VpQ",
+      "name": "DIVELA / Official",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCfVQDynjGGBJQDpdbGy0ffQ",
+      "name": "ガルナ(オワタP)",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFXkDxCa_XVcNC7oOEw7U5g",
+      "name": "柊マグネタイト",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCD7pKXtQ-ZFixYZp8NYAY1Q",
+      "name": "八王子P",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWcXbOwCKxRL9HEpxiJv0ng",
+      "name": "宮守文学",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UClkc2M0xPFhoOzzHlgZDMfw",
+      "name": "ささくれUK ANOTHER",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCft5HulDeuKloukyShxyOZA",
+      "name": "Chinozo",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCh7cwUaQDIkAMtIj5nAbSjg",
+      "name": "にしゃい",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZc_X2HULaJeAjdJV8sqoLA",
+      "name": "SAWTOWNE",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbSMYC0vEbxan0hchScRaOA",
+      "name": "Dark Knight",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UClzpoRto1BJXaRGe9OkkGLQ",
+      "name": "ビートまりお / beatMARIO",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UClq25MWngDVZ3_YzhXG2V1Q",
+      "name": "おむたつ",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCRFa3oPWOEb4fF__yMEFGrA",
+      "name": "Katsundra",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCP4sp1GUNCMAjktM3O-o9hg",
+      "name": "じん OFFICIAL YOUTUBE CHANNEL",
+      "category": "video",
+      "reliability": 0.7,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC-a37zAYn1Tl7SBOmlMb6qQ",
+      "name": "Milk Tea September",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCHEwyfMIHUSSijxXc_0QipA",
+      "name": "klef",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC0UKL0fIkNUANaGAgqFERbg",
+      "name": "irucaice / いるかアイス",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZ8wWU0teJKhqP56OK2tDzA",
+      "name": "TOKOYAMi",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdMGYXL38w6htx6Yf9YJa-w",
+      "name": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC7b-NfmrjAYmH9NSEiUaeUg",
+      "name": "Trash Pau",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC1HL3TABt6QGd_P857BH_CA",
+      "name": "Evbo",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbKWv2x9t6u8yZoB3KcPtnw",
+      "name": "Alan Becker",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCcvLSRIWJIAGFDyWtzkbiHA",
+      "name": "marasy8",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCB6y9VskHTkeZJ0vqVQpFzA",
+      "name": "Kraul",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCERnqX8iOLEAKWVnXfG2DIQ",
+      "name": "文化綠洲【精華剪輯】",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC6RWuQbI_OlVoQuV7-0-rXA",
+      "name": "Staz",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCGmO0S4S-AunjRdmxA6TQYg",
+      "name": "DECO*27",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC9AYHlE2OLcMlZJo3MBlfkQ",
+      "name": "cosMo@暴走P Official Channel",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJwGWV914kBlV4dKRn7AEFA",
+      "name": "HatsuneMiku | youtube",
+      "category": "video",
+      "reliability": 0.7,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCTkXRDQl0luXxVQrRQvWS6w",
+      "name": "Dream",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCE0uNSkGhhsNMwAZcIQY7rw",
+      "name": "Mitchie M",
+      "category": "video",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC5Kgc_HNzx4GJ-w4QMeeKiQ",
+      "name": "Pythonプログラミング VTuber サプー",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCQcboHvGXFE5vuy2AK2MUOg",
+      "name": "kzlivetune",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBR4N5DkgDt3PLTcfJB1iiw",
+      "name": "みきとP Official Channel",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMMBGMjrrWcRZmG_lW4jC-Q",
+      "name": "ピノキオピー PINOCCHIOP OFFICIAL CHANNEL",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC53I70eBu29T9rO1GvXdc_w",
+      "name": "南ノ南",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC7BYDRV-l741zjSUcyLT_cQ",
+      "name": "和田たけあき(くらげP)",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC10BM9XdLdrvB8japwmRUvA",
+      "name": "Kanaria",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBa5G_ESCn8Yd4vw5U-gIcg",
+      "name": "stanfordonline",
+      "category": "video",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCsFCD8G80_achmqcPEidGAw",
+      "name": "LamazeP",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCX6b17PVsYBQ0ip5gyeme-Q",
+      "name": "CrashCourse",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC6mS4IOnNoNV1dZ3qY6dqJA",
+      "name": "Gymbag",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCfxoZVxYrBzW66rG9F98pyg",
+      "name": "Nokkopi",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBEpm5vZaSgOXklTNkXD3mA",
+      "name": "Johnny’s Garage Animations",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCf04bnvV0TJ3hztc8F811WQ",
+      "name": "ppchan",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCIq12vFoOI14ZUfcya7EXdw",
+      "name": "Fennyka",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNMtBTJd9s8kLkI9Jg4JuQA",
+      "name": "Caldier",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCeqtyAIEAHnIXQdbNiikqRQ",
+      "name": "Scuffed Vtuber Animation",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC6FTMCuI9X2ggdMiKFpRukw",
+      "name": "SEGA feat. HATSUNE MIKU Project",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCLHmLrj4pHHg3-iBJn_CqxA",
+      "name": "Neuro-sama Ch. Vedal AI",
+      "category": "video",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/programmingmemes/.rss",
+      "name": "r/programmingmemes",
+      "category": "humor",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/ProgrammerHumor/hot/.rss",
+      "name": "r/ProgrammerHumor",
+      "category": "humor",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://rsshub.app/pixiv/ranking/week",
+      "name": "pixiv 周排行",
+      "category": "art",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://rsshub.app/pixiv/user/16731",
+      "name": "玉之けだま 的 pixiv 动态",
+      "category": "nsfw",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCiipJgscQRIxaugbhmOsxRA",
+      "name": "Dave Rodgers",
+      "category": "music",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCpgDkOVtTbAHrHKOnOu7HJw",
+      "name": "Odyssey Eurobeat",
+      "category": "music",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEHXNknwbsRu73QsakWIdzQ",
+      "name": "The8BitDrummer",
+      "category": "music",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBvWfh5pkiCdApbtS0eaMIg",
+      "name": "826aska",
+      "category": "music",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZEZcozbf3e339wn3eZ31Tw",
+      "name": "IMOJIST",
+      "category": "music",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "http://rsshub.app/youtube/user/@Ado1024",
+      "name": "Ado - YouTube",
+      "category": "music",
+      "reliability": 0.7,
+      "enabled": true
+    },
+    {
+      "url": "http://rsshub.app/youtube/user/@KenshiYonezu",
+      "name": "Kenshi Yonezu 米津玄師 - YouTube",
+      "category": "music",
+      "reliability": 0.7,
+      "enabled": true
+    },
+    {
+      "url": "http://rsshub.app/youtube/user/@yuyutadesu",
+      "name": "Yuyuta Piano - YouTube",
+      "category": "music",
+      "reliability": 0.7,
+      "enabled": true
+    },
+    {
+      "url": "http://rsshub.app/youtube/user/@yomEsPianoChannel",
+      "name": "Yomii Piano よみぃ - YouTube",
+      "category": "music",
+      "reliability": 0.7,
+      "enabled": true
+    },
+    {
+      "url": "https://aoikaze.moe/feed.xml",
+      "name": "风蓝活动室",
+      "category": "acgn",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/osugame/.rss",
+      "name": "r/osugame",
+      "category": "acgn",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/Nendoroid/.rss",
+      "name": "r/Nendoroid",
+      "category": "acgn",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.himiku.com/feed/",
+      "name": "初之音",
+      "category": "acgn",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCGHt57Ski7CTILqP8IXRgIg",
+      "name": "あぎりさんぽ",
+      "category": "animation",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCh7cwUaQDIkAMtIj5nAbSjg",
+      "name": "にしゃい",
+      "category": "animation",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCRFa3oPWOEb4fF__yMEFGrA",
+      "name": "Katsundra",
+      "category": "animation",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC-a37zAYn1Tl7SBOmlMb6qQ",
+      "name": "Milk Tea September",
+      "category": "animation",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCHEwyfMIHUSSijxXc_0QipA",
+      "name": "klef",
+      "category": "animation",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbKWv2x9t6u8yZoB3KcPtnw",
+      "name": "Alan Becker",
+      "category": "animation",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC6mS4IOnNoNV1dZ3qY6dqJA",
+      "name": "Gymbag",
+      "category": "animation",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCfxoZVxYrBzW66rG9F98pyg",
+      "name": "Nokkopi",
+      "category": "animation",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBEpm5vZaSgOXklTNkXD3mA",
+      "name": "Johnny’s Garage Animations",
+      "category": "animation",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCIq12vFoOI14ZUfcya7EXdw",
+      "name": "Fennyka",
+      "category": "animation",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNMtBTJd9s8kLkI9Jg4JuQA",
+      "name": "Caldier",
+      "category": "animation",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCeqtyAIEAHnIXQdbNiikqRQ",
+      "name": "Scuffed Vtuber Animation",
+      "category": "animation",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC6IhDHJbJUoRJGUPnlh5GRQ",
+      "name": "kessoku band - Topic",
+      "category": "anime",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/NewGame/.rss",
+      "name": "New Game!",
+      "category": "anime",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/OniichanOshimai/.rss",
+      "name": "Onii-chan wa Oshimai - Onii-chan is Done For!",
+      "category": "anime",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/Non_Non_Biyori/.rss",
+      "name": "nyanpassu～",
+      "category": "anime",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/k_on/.rss",
+      "name": "Tea, Candy, and Music!",
+      "category": "anime",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/majonotabitabi/.rss",
+      "name": "Wandering Witch: The Journey of Elaina",
+      "category": "anime",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/BocchiTheRock/.rss",
+      "name": "r/BocchitheRock",
+      "category": "anime",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSVe_NzxYvegv-f5pWBbS5A",
+      "name": "Atena",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCGGY3oTOQ9g9FCu9hLFJsqw",
+      "name": "[OFFICIAL] *Luna",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "http://rsshub.app/youtube/channel/UCGGY3oTOQ9g9FCu9hLFJsqw",
+      "name": "*Luna - YouTube",
+      "category": "vocaloid",
+      "reliability": 0.7,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UClxXuM2m0rIL9VCA1ds9HqA",
+      "name": "Neru OFFICIAL",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvq3kUGY5Dbsdkr3DZx25Sw",
+      "name": "Giga",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/KasaneTeto/.rss",
+      "name": "Kasane Teto",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCQhaO68SSoKmQ9RBRCy7pAQ",
+      "name": "Omoi3965",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrGzu0MPKQpYF2AV2oG-VpQ",
+      "name": "DIVELA / Official",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UChK8kgGU767nKTxp4f4GD6g",
+      "name": "ナユタン星人Official / NayutalieN",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UChFmH8dTXNPYCY3XeF9xtSA",
+      "name": "164 Official",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCfVQDynjGGBJQDpdbGy0ffQ",
+      "name": "ガルナ(オワタP)",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFXkDxCa_XVcNC7oOEw7U5g",
+      "name": "柊マグネタイト",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCD7pKXtQ-ZFixYZp8NYAY1Q",
+      "name": "八王子P",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWcXbOwCKxRL9HEpxiJv0ng",
+      "name": "宮守文学",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UClkc2M0xPFhoOzzHlgZDMfw",
+      "name": "ささくれUK ANOTHER",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCft5HulDeuKloukyShxyOZA",
+      "name": "Chinozo",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCh7cwUaQDIkAMtIj5nAbSjg",
+      "name": "にしゃい",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZc_X2HULaJeAjdJV8sqoLA",
+      "name": "SAWTOWNE",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UClq25MWngDVZ3_YzhXG2V1Q",
+      "name": "おむたつ",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/Vocaloid/.rss",
+      "name": "r/Vocaloid",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCP4sp1GUNCMAjktM3O-o9hg",
+      "name": "じん OFFICIAL YOUTUBE CHANNEL",
+      "category": "vocaloid",
+      "reliability": 0.7,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC0UKL0fIkNUANaGAgqFERbg",
+      "name": "irucaice / いるかアイス",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://karent.jp/rss/karent_web_news.xml",
+      "name": "KarenT(カレント)：ＣＧＭ型音楽配信サイト",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCcvLSRIWJIAGFDyWtzkbiHA",
+      "name": "marasy8",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCGmO0S4S-AunjRdmxA6TQYg",
+      "name": "DECO*27",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/hatsune/hot/.rss",
+      "name": "r/hatsune",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC9AYHlE2OLcMlZJo3MBlfkQ",
+      "name": "cosMo@暴走P Official Channel",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJwGWV914kBlV4dKRn7AEFA",
+      "name": "HatsuneMiku | youtube",
+      "category": "vocaloid",
+      "reliability": 0.7,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCE0uNSkGhhsNMwAZcIQY7rw",
+      "name": "Mitchie M",
+      "category": "vocaloid",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCQcboHvGXFE5vuy2AK2MUOg",
+      "name": "kzlivetune",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBR4N5DkgDt3PLTcfJB1iiw",
+      "name": "みきとP Official Channel",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMMBGMjrrWcRZmG_lW4jC-Q",
+      "name": "ピノキオピー PINOCCHIOP OFFICIAL CHANNEL",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC53I70eBu29T9rO1GvXdc_w",
+      "name": "南ノ南",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC7BYDRV-l741zjSUcyLT_cQ",
+      "name": "和田たけあき(くらげP)",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC10BM9XdLdrvB8japwmRUvA",
+      "name": "Kanaria",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCsFCD8G80_achmqcPEidGAw",
+      "name": "LamazeP",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC6FTMCuI9X2ggdMiKFpRukw",
+      "name": "SEGA feat. HATSUNE MIKU Project",
+      "category": "vocaloid",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMPNkOyomHEpeJ7bTbI8SWA",
+      "name": "Nightcord at 25:00 - Topic",
+      "category": "pjsk",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCnBtJXmyVRjMnZOpQseqN8A",
+      "name": "MORE MORE JUMP! - Topic",
+      "category": "pjsk",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFS8ufY-kpFAET9fJhSwpyQ",
+      "name": "Leo/need - Topic",
+      "category": "pjsk",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNS0t8oyF81-_SpYMtqNhzA",
+      "name": "Vivid BAD SQUAD - Topic",
+      "category": "pjsk",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/ProjectSekai/.rss",
+      "name": "ProjectSekai",
+      "category": "pjsk",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/PJSKStories/.rss",
+      "name": "PJSKStories",
+      "category": "pjsk",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZ8wWU0teJKhqP56OK2tDzA",
+      "name": "TOKOYAMi",
+      "category": "pjsk",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdMGYXL38w6htx6Yf9YJa-w",
+      "name": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
+      "category": "pjsk",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC7b-NfmrjAYmH9NSEiUaeUg",
+      "name": "Trash Pau",
+      "category": "pjsk",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCYWJTcV_8ceDND5q4AJHiVQ",
+      "name": "Active NEETs",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC7IDepfsi2m_ha3ViKsSy9w",
+      "name": "Hoxton Texas",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEy1orNlpm4eMeYN-lJQdbQ",
+      "name": "我夢チャンネル",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCl7OsED7y9eavZJbTGnK0xg",
+      "name": "岸田教団&THE明星ロケッツ Official",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOxvBvlRGKjf0ZWfVEdneKA",
+      "name": "森羅万象",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZaFfDBBCqmYdfp6DJl0cRw",
+      "name": "Records 暁",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCnuEsJIldN96v4lMc7vIKKA",
+      "name": "ほらいむ",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC7_53g75aj47CXi2rVYDIKw",
+      "name": "iosyshaitenai",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrIrRpXL1F7B03ozb_VECiQ",
+      "name": "A-One Official",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCsHscSLQ8Rmzj6m2-RPGbrg",
+      "name": "Arni Village",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOk_xvWwcQD59AtNz6rlJww",
+      "name": "Mush-Broom",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCskGtChqHxfir7OeCHethPQ",
+      "name": "21 6",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCkoNwhfCPUiWbkmoUoa7XNg",
+      "name": "Mirae Somang",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEc2gctIynWHMDq2tuCBPJw",
+      "name": "minusT",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCmzieQGdu7fTXaPqi2AuXyg",
+      "name": "yuuheitube2011",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/touhou/.rss",
+      "name": "r/touhou",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UClzpoRto1BJXaRGe9OkkGLQ",
+      "name": "ビートまりお / beatMARIO",
+      "category": "touhou",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://rsshub.app/youtube/user/@ui_shig",
+      "name": "しぐれうい - YouTube",
+      "category": "vtubers",
+      "reliability": 0.7,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdyPindb5CUHQNJfrJ__ebA",
+      "name": "slice of toma",
+      "category": "vtubers",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/annyfox/.rss",
+      "name": "r/annytf",
+      "category": "vtubers",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCeZe82WbZ7VL9meqWli6qxg",
+      "name": "Ellie_Minibot",
+      "category": "vtubers",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdjLJvro7Q3V0M2V2pwWfZA",
+      "name": "camila",
+      "category": "vtubers",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvjNdLLy5sinqD92Axk8w-g",
+      "name": "filian",
+      "category": "vtubers",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC5Kgc_HNzx4GJ-w4QMeeKiQ",
+      "name": "Pythonプログラミング VTuber サプー",
+      "category": "vtubers",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbSMYC0vEbxan0hchScRaOA",
+      "name": "Dark Knight",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCRFa3oPWOEb4fF__yMEFGrA",
+      "name": "Katsundra",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC-a37zAYn1Tl7SBOmlMb6qQ",
+      "name": "Milk Tea September",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCHEwyfMIHUSSijxXc_0QipA",
+      "name": "klef",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCB6y9VskHTkeZJ0vqVQpFzA",
+      "name": "Kraul",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCERnqX8iOLEAKWVnXfG2DIQ",
+      "name": "文化綠洲【精華剪輯】",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC6RWuQbI_OlVoQuV7-0-rXA",
+      "name": "Staz",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC6mS4IOnNoNV1dZ3qY6dqJA",
+      "name": "Gymbag",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCfxoZVxYrBzW66rG9F98pyg",
+      "name": "Nokkopi",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBEpm5vZaSgOXklTNkXD3mA",
+      "name": "Johnny’s Garage Animations",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCf04bnvV0TJ3hztc8F811WQ",
+      "name": "ppchan",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCIq12vFoOI14ZUfcya7EXdw",
+      "name": "Fennyka",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCeqtyAIEAHnIXQdbNiikqRQ",
+      "name": "Scuffed Vtuber Animation",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/NeuroSama/.rss",
+      "name": "r/NeuroSama",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCLHmLrj4pHHg3-iBJn_CqxA",
+      "name": "Neuro-sama Ch. Vedal AI",
+      "category": "neurosama",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCOzWD4b_-q77XTaSl89OukA",
+      "name": "yuzusoft2007",
+      "category": "games",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://news.google.com/news/rss/search?q=GTA%206&hl=en",
+      "name": "\"GTA 6\" - Google News",
+      "category": "games",
+      "reliability": 0.9,
+      "enabled": true
+    },
+    {
+      "url": "https://store.steampowered.com/feeds/news/app/1584090",
+      "name": "touhou mystia's izakaya news",
+      "category": "games",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://store.steampowered.com/feeds/news/app/1325860",
+      "name": "vtuber studio news",
+      "category": "games",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://store.steampowered.com/feeds/news/app/438100",
+      "name": "vrchat news",
+      "category": "games",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://store.steampowered.com/feeds/news/app/3301060",
+      "name": "desktop mate news",
+      "category": "games",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://store.steampowered.com/feeds/news/app/1955830/",
+      "name": "touhou hero story of ice fairy news",
+      "category": "games",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UC1HL3TABt6QGd_P857BH_CA",
+      "name": "Evbo",
+      "category": "minecraft",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.reddit.com/r/Minecraft/.rss",
+      "name": "r/Minecraft",
+      "category": "minecraft",
+      "reliability": 0.75,
+      "enabled": true
+    },
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCTkXRDQl0luXxVQrRQvWS6w",
+      "name": "Dream",
+      "category": "minecraft",
+      "reliability": 0.75,
+      "enabled": true
+    }
   ]
 }
