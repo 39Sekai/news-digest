@@ -36,6 +36,13 @@ Located in `tests/fixtures/`:
 - `settings.json` — Configuration settings
 - `sources.json` — Source trust scores
 
+## Production Feeds
+
+Full feed list in `config/feeds.json`:
+- **321 RSS feeds** converted from Inoreader OPML export
+- Categories: AI, TECH, CS, ROBOTICS, SECURITY, GENERAL, EVENTS, ALERTS, SPACE, UNIVERSITIES, SOCIETY
+- Successfully tested: 235 feeds processed, 3129 articles fetched in 44.9s
+
 ## Test Categories
 
 ### Scorer Tests
